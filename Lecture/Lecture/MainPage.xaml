@@ -11,14 +11,13 @@
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
         <Grid.RowDefinitions>
             <RowDefinition Height="*" />
-            <RowDefinition Height="*" />
+            <RowDefinition Height="2*" />
+            <RowDefinition Height="3*" />
         </Grid.RowDefinitions>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="Auto" />
-            <ColumnDefinition Width="*" />
-        </Grid.ColumnDefinitions>
-        <Button x:Name="Button1" Content="Button" HorizontalAlignment="Left" Margin="320,137,0,0" VerticalAlignment="Top" Click="Button1_Click" Height="169" Width="437" Grid.RowSpan="2" Grid.ColumnSpan="2"/>
-        <TextBlock x:Name="TextBlock1" Grid.Row="1" HorizontalAlignment="Left" Margin="795,416,0,0" Text="Click the button!" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="48" Grid.Column="1"/>
 
+        <Rectangle Fill="Red" Grid.Row="0" Width="50" Height="50" HorizontalAlignment="Right" VerticalAlignment="Bottom"/>
+        <Rectangle Fill="Green" Grid.Row="1" />
+        <Rectangle Fill="Blue" Grid.Row="2" />
+        <Button Content="Button" HorizontalAlignment="Right" Margin="0,0,10,0" Grid.Row="1" VerticalAlignment="Top" Click="Button_Click"/>
     </Grid>
 </Page>
