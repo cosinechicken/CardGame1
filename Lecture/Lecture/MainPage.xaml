@@ -10,6 +10,22 @@
 
     
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Button/>
+        <Button/>
+        <Button/>
+        <Button/>
+        <Button/>
+        <Button/>
+        <Button/>
+        <Border/>
+        <Button/>
+        <Button/>
+        <Button/>
+        <Button/>
+        <Button/>
+        <Rectangle/>
+        <Button/>
+        <Button/>
 
     </Grid>
 </Page>
