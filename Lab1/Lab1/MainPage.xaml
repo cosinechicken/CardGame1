@@ -8,6 +8,24 @@
     mc:Ignorable="d">
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-
+        <Grid.RowDefinitions>
+            <RowDefinition Height="100" />
+            <RowDefinition Height="50" />
+            <RowDefinition Height="50" />
+            <RowDefinition Height="50" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="150" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <TextBlock HorizontalAlignment="Left" Margin="10,20,0,0" Text="ACME Sales Corp" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="48" Grid.ColumnSpan="2"/>
+        <TextBlock HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10,0,0,0" Text="First Name: " Grid.Row="1"/>
+        <TextBlock HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10,0,0,0" Text="Last Name: " Grid.Row="2"/>
+        <TextBlock HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10,0,0,0" Text="Email: " Grid.Row="3"/>
+        <TextBox Margin="10,10,10,10" Grid.Row="1" Grid.Column="1" />
+        <TextBox Margin="10,10,10,10" Grid.Row="2" Grid.Column="1"/>
+        <TextBox Margin="10,10,10,10" Grid.Row="3" Grid.Column="1"/>
+        <Button HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,10,0,0" Grid.Row="4" Grid.Column="1" Content="Save"/>
     </Grid>
 </Page>
