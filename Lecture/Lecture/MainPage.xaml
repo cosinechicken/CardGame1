@@ -8,24 +8,35 @@
     mc:Ignorable="d">
 
 
-    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <Grid.RowDefinitions>
-            <RowDefinition Height="*" />
-            <RowDefinition Height="2*" />
-            <RowDefinition Height="3*" />
-        </Grid.RowDefinitions>
-
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="3*" />
-            <ColumnDefinition Width="2*" />
-            <ColumnDefinition Width="*" />
-        </Grid.ColumnDefinitions>
-
-        <Rectangle Fill="Black" Grid.Row="0" Grid.Column="1"/>
-        <Rectangle Fill="Red" Grid.Row="0" Grid.Column="1" Width="50" Height="50" HorizontalAlignment="Right" VerticalAlignment="Bottom"/>
-        <Rectangle Fill="Green" Grid.Row="1" Grid.Column="2"/>
-        <Rectangle Fill="Blue" Grid.Row="2" />
-        
-        <Button Content="Button" HorizontalAlignment="Right" Margin="0,0,10,0" Grid.Row="1" VerticalAlignment="Top" Click="Button_Click"/>
-    </Grid>
+    <StackPanel Background="White">
+        <TextBlock>First</TextBlock>
+        <TextBlock>Second</TextBlock>
+        <TextBlock>Third</TextBlock>
+        <TextBlock>Fourth</TextBlock>
+        <StackPanel Orientation="Horizontal">
+            <TextBlock>Fifth</TextBlock>
+            <TextBox Text="Sixth"></TextBox>
+            <Button>Seventh</Button>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" VerticalAlignment="Top">
+            <Rectangle Width="200" Height="200" Fill="Bisque"></Rectangle>
+            <StackPanel Orientation="Vertical">
+                <StackPanel Orientation="Horizontal">
+                    <Rectangle Width="100" Height="100" Fill="Azure"></Rectangle>
+                    <StackPanel Orientation="Vertical">
+                        <Rectangle Width="100" Height="50" Fill="RosyBrown"></Rectangle>
+                        <Rectangle Width="100" Height="50" Fill="DarkCyan"></Rectangle>
+                    </StackPanel>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <Rectangle Width="100" Height="100" Fill="Tomato"></Rectangle>
+                    <StackPanel Orientation="Vertical">
+                        <Rectangle Width="100" Height="50" Fill="BurlyWood"></Rectangle>
+                        <Rectangle Width="100" Height="50" Fill="SaddleBrown"></Rectangle>
+                    </StackPanel>
+                </StackPanel>
+            </StackPanel>
+        </StackPanel>
+    </StackPanel>
+    
 </Page>
