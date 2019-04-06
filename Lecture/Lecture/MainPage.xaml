@@ -7,36 +7,21 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
 
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="2*"/>
+            <RowDefinition Height="1*"/>
+        </Grid.RowDefinitions>
 
-    <StackPanel Background="White">
-        <TextBlock>First</TextBlock>
-        <TextBlock>Second</TextBlock>
-        <TextBlock>Third</TextBlock>
-        <TextBlock>Fourth</TextBlock>
-        <StackPanel Orientation="Horizontal">
-            <TextBlock>Fifth</TextBlock>
-            <TextBox Text="Sixth"></TextBox>
-            <Button>Seventh</Button>
-        </StackPanel>
-        <StackPanel Orientation="Horizontal" VerticalAlignment="Top">
-            <Rectangle Width="200" Height="200" Fill="Bisque"></Rectangle>
-            <StackPanel Orientation="Vertical">
-                <StackPanel Orientation="Horizontal">
-                    <Rectangle Width="100" Height="100" Fill="Azure"></Rectangle>
-                    <StackPanel Orientation="Vertical">
-                        <Rectangle Width="100" Height="50" Fill="RosyBrown"></Rectangle>
-                        <Rectangle Width="100" Height="50" Fill="DarkCyan"></Rectangle>
-                    </StackPanel>
-                </StackPanel>
-                <StackPanel Orientation="Horizontal">
-                    <Rectangle Width="100" Height="100" Fill="Tomato"></Rectangle>
-                    <StackPanel Orientation="Vertical">
-                        <Rectangle Width="100" Height="50" Fill="BurlyWood"></Rectangle>
-                        <Rectangle Width="100" Height="50" Fill="SaddleBrown"></Rectangle>
-                    </StackPanel>
-                </StackPanel>
-            </StackPanel>
-        </StackPanel>
-    </StackPanel>
+        <RelativePanel MinHeight="300" Grid.Row="1">
+            <Rectangle Name="RedRectangle" Fill="Red" Width="100" Height="100" RelativePanel.AlignRightWithPanel="True" />
+            <Rectangle Name="BlueRectangle" Fill="Blue" Width="50" Height="50" RelativePanel.LeftOf="RedRectangle" />
+            <Rectangle Name="GreenRectangle" Fill="Green" Width="50" Height="50" RelativePanel.AlignVerticalCenterWith="RedRectangle" RelativePanel.AlignHorizontalCenterWithPanel="True" />
+            <Rectangle Name="PurpleRectangle" Fill="Purple" MinWidth="50" MinHeight="50" RelativePanel.Below="RedRectangle" RelativePanel.AlignRightWith="RedRectangle" RelativePanel.AlignLeftWith="GreenRectangle"/>
+            <Rectangle Name="YellowRectangle" Fill="Yellow" MinWidth="50" MinHeight="50" RelativePanel.AlignBottomWithPanel="True" RelativePanel.AlignTopWith="PurpleRectangle"/>
+        </RelativePanel>
+    </Grid>
+    
     
 </Page>
