@@ -7,35 +7,26 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
 
-    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="Auto"/>
-        </Grid.RowDefinitions>
-
-        <RelativePanel>
-            <Button Name="SearchButton" Content="Search" RelativePanel.AlignRightWithPanel="True" Margin="0,0,10,0" />
-            <TextBox Name="SearchTextBox" RelativePanel.LeftOf="SearchButton" Width="100" Margin="0,0,10,0" />
-            <TextBlock Text="Search:" RelativePanel.LeftOf="SearchTextBox" RelativePanel.AlignVerticalCenterWithPanel="True" Margin="0,0,10,0" />
-            <TextBlock Text="Title" FontSize="24" FontWeight="Bold" Margin="0,0,10,0" />
-        </RelativePanel>
-
-        <Border BorderThickness="3" Background="#FFE0E0E0" Grid.Row="2" BorderBrush="#FFD2D2D2">
-            <RelativePanel>
-                <TextBlock Name="ItemsTextBlock" Text="Items:" RelativePanel.AlignLeftWithPanel="True" Margin="10,5,0,5" />
-                <TextBlock Text="10" RelativePanel.RightOf="ItemsTextBlock" Margin="5,5,0,5" />
-
-                <TextBlock Text="Version:" RelativePanel.LeftOf="VersionTextBlock" Margin="0,5,5,5" />
-                <TextBlock Name="VersionTextBlock" Text="1.0.0" RelativePanel.AlignRightWithPanel="True" Margin="0,5,10,5" />
-
-                <StackPanel RelativePanel.AlignHorizontalCenterWithPanel="True" Orientation="Horizontal">
-                    <TextBlock Text="User:" Margin="0,5,5,5"/>
-                    <TextBlock Text="Bob" Margin="0,5,0,5"/>
+    <StackPanel Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" Orientation="Horizontal">
+        <SplitView Name="MySplitView" Margin="0,10,0,0" DisplayMode="Overlay">
+            <SplitView.Pane>
+                <StackPanel>
+                    <TextBlock Text="One"/>
+                    <TextBlock Text="Two"/>
+                    <TextBlock Text="Three"/>
                 </StackPanel>
-            </RelativePanel>
-        </Border>
-    </Grid>
+            </SplitView.Pane>
+            <SplitView.Content>
+                <StackPanel>
+                    <TextBlock Text="Four"/>
+                    <TextBlock Text="Five"/>
+                    <TextBlock Text="Six"/>
+                </StackPanel>
+            </SplitView.Content>
+        </SplitView>
+        <Button Content="Click Me!" Click="Button_Click"/>
+    </StackPanel>
+        
     
     
 </Page>

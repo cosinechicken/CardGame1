@@ -29,7 +29,7 @@ namespace Lecture
         
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-
+            MySplitView.IsPaneOpen = !MySplitView.IsPaneOpen;
         }
     }
 }
