@@ -9,18 +9,32 @@
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
         <Grid.RowDefinitions>
-            <RowDefinition Height="1*"/>
-            <RowDefinition Height="2*"/>
-            <RowDefinition Height="1*"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
 
-        <RelativePanel MinHeight="300" Grid.Row="1">
-            <Rectangle Name="RedRectangle" Fill="Red" Width="100" Height="100" RelativePanel.AlignRightWithPanel="True" />
-            <Rectangle Name="BlueRectangle" Fill="Blue" Width="50" Height="50" RelativePanel.LeftOf="RedRectangle" />
-            <Rectangle Name="GreenRectangle" Fill="Green" Width="50" Height="50" RelativePanel.AlignVerticalCenterWith="RedRectangle" RelativePanel.AlignHorizontalCenterWithPanel="True" />
-            <Rectangle Name="PurpleRectangle" Fill="Purple" MinWidth="50" MinHeight="50" RelativePanel.Below="RedRectangle" RelativePanel.AlignRightWith="RedRectangle" RelativePanel.AlignLeftWith="GreenRectangle"/>
-            <Rectangle Name="YellowRectangle" Fill="Yellow" MinWidth="50" MinHeight="50" RelativePanel.AlignBottomWithPanel="True" RelativePanel.AlignTopWith="PurpleRectangle"/>
+        <RelativePanel>
+            <Button Name="SearchButton" Content="Search" RelativePanel.AlignRightWithPanel="True" Margin="0,0,10,0" />
+            <TextBox Name="SearchTextBox" RelativePanel.LeftOf="SearchButton" Width="100" Margin="0,0,10,0" />
+            <TextBlock Text="Search:" RelativePanel.LeftOf="SearchTextBox" RelativePanel.AlignVerticalCenterWithPanel="True" Margin="0,0,10,0" />
+            <TextBlock Text="Title" FontSize="24" FontWeight="Bold" Margin="0,0,10,0" />
         </RelativePanel>
+
+        <Border BorderThickness="3" Background="#FFE0E0E0" Grid.Row="2" BorderBrush="#FFD2D2D2">
+            <RelativePanel>
+                <TextBlock Name="ItemsTextBlock" Text="Items:" RelativePanel.AlignLeftWithPanel="True" Margin="10,5,0,5" />
+                <TextBlock Text="10" RelativePanel.RightOf="ItemsTextBlock" Margin="5,5,0,5" />
+
+                <TextBlock Text="Version:" RelativePanel.LeftOf="VersionTextBlock" Margin="0,5,5,5" />
+                <TextBlock Name="VersionTextBlock" Text="1.0.0" RelativePanel.AlignRightWithPanel="True" Margin="0,5,10,5" />
+
+                <StackPanel RelativePanel.AlignHorizontalCenterWithPanel="True" Orientation="Horizontal">
+                    <TextBlock Text="User:" Margin="0,5,5,5"/>
+                    <TextBlock Text="Bob" Margin="0,5,0,5"/>
+                </StackPanel>
+            </RelativePanel>
+        </Border>
     </Grid>
     
     
