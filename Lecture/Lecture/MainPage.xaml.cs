@@ -25,11 +25,28 @@ namespace Lecture
         public MainPage()
         {
             this.InitializeComponent();
+            InnerFrame.Navigate(typeof(Page1));
         }
         
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void HomeButton_Click(object sender, RoutedEventArgs e)
         {
-            MySplitView.IsPaneOpen = !MySplitView.IsPaneOpen;
+            InnerFrame.Navigate(typeof(Page1));
+        }
+
+        private void BackButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (InnerFrame.CanGoBack)
+            {
+                InnerFrame.GoBack();
+            }
+        }
+
+        private void ForwardButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (InnerFrame.CanGoForward)
+            {
+                InnerFrame.GoForward();
+            }
         }
     }
 }

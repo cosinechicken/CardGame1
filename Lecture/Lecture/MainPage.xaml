@@ -7,26 +7,16 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
 
-    <StackPanel Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" Orientation="Horizontal">
-        <SplitView Name="MySplitView" Margin="0,10,0,0" DisplayMode="Overlay">
-            <SplitView.Pane>
-                <StackPanel>
-                    <TextBlock Text="One"/>
-                    <TextBlock Text="Two"/>
-                    <TextBlock Text="Three"/>
-                </StackPanel>
-            </SplitView.Pane>
-            <SplitView.Content>
-                <StackPanel>
-                    <TextBlock Text="Four"/>
-                    <TextBlock Text="Five"/>
-                    <TextBlock Text="Six"/>
-                </StackPanel>
-            </SplitView.Content>
-        </SplitView>
-        <Button Content="Click Me!" Click="Button_Click"/>
+    <StackPanel Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <StackPanel Orientation="Horizontal">
+            <Button Name="HomeButton" Content="Home" Click="HomeButton_Click" Margin="0,0,20,0" />
+            <Button Name="BackButton" Content="Back" Click="BackButton_Click" Margin="0,0,20,0" />
+            <Button Name="ForwardButton" Content="Forward" Click="ForwardButton_Click" Margin="0,0,20,0" />
+        </StackPanel>
+
+        <Frame Name="InnerFrame"/>
     </StackPanel>
-        
+       
     
     
 </Page>
