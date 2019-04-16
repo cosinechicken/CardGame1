@@ -25,27 +25,72 @@ namespace Lecture
         public MainPage()
         {
             this.InitializeComponent();
-            InnerFrame.Navigate(typeof(Page1));
         }
-        
-        private void HomeButton_Click(object sender, RoutedEventArgs e)
-        {
-            InnerFrame.Navigate(typeof(Page1));
-        }
+              
 
-        private void BackButton_Click(object sender, RoutedEventArgs e)
+        private void MyCheckBox_Tapped(object sender, TappedRoutedEventArgs e)
         {
-            if (InnerFrame.CanGoBack)
+            if (MyCheckBox.IsChecked.Value)
             {
-                InnerFrame.GoBack();
+                CheckBoxResultTextBlock.Text = "Yes";
+            }
+            else
+            {
+                CheckBoxResultTextBlock.Text = "No";
             }
         }
 
-        private void ForwardButton_Click(object sender, RoutedEventArgs e)
+        private void RadioButton_Checked(object sender, RoutedEventArgs e)
         {
-            if (InnerFrame.CanGoForward)
+            if (YesRadioButton.IsChecked.Value)
             {
-                InnerFrame.GoForward();
+                RadioButtonTextBlock.Text = "Yes";
+            } else
+            {
+                RadioButtonTextBlock.Text = "No";
+            }
+        }
+
+        private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (ComboBoxResultTextBlock != null)
+            {
+                ComboBox combo = (ComboBox)sender;
+                ComboBoxItem item = (ComboBoxItem)combo.SelectedItem;
+
+                ComboBoxResultTextBlock.Text = item.Content.ToString();
+            }
+        }
+
+        private void ListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            string itemsStr = "";
+            foreach(object item in MyListBox.Items)
+            {
+                ListBoxItem listBoxItem = (ListBoxItem)item;
+                if (listBoxItem.IsSelected)
+                {
+                    itemsStr += listBoxItem.Content.ToString() + " ";
+                }
+            }
+            ListBoxResultTextBlock.Text = itemsStr;
+        }
+
+        private void MyToggleButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (MyToggleButton.IsChecked.HasValue)
+            {
+                if (MyToggleButton.IsChecked.Value == true)
+                {
+                    ToggleButtonResultTextBlock.Text = "True";
+                } else
+                {
+                    ToggleButtonResultTextBlock.Text = "False";
+
+                }
+            } else
+            {
+                ToggleButtonResultTextBlock.Text = "Null";
             }
         }
     }

@@ -7,16 +7,65 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
 
-    <StackPanel Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <StackPanel Orientation="Horizontal">
-            <Button Name="HomeButton" Content="Home" Click="HomeButton_Click" Margin="0,0,20,0" />
-            <Button Name="BackButton" Content="Back" Click="BackButton_Click" Margin="0,0,20,0" />
-            <Button Name="ForwardButton" Content="Forward" Click="ForwardButton_Click" Margin="0,0,20,0" />
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" Margin="10,10,0,0">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto" />
+        </Grid.ColumnDefinitions>
+
+        <StackPanel Grid.Row="0" Margin="20,10,0,10" Orientation="Horizontal">
+            <CheckBox Name="MyCheckBox" Content="Agree?" Tapped="MyCheckBox_Tapped" />
+            <TextBlock Name="CheckBoxResultTextBlock" />
         </StackPanel>
 
-        <Frame Name="InnerFrame"/>
-    </StackPanel>
+        <StackPanel Grid.Row="2" Margin="20,10,0,10">
+            <RadioButton Name="YesRadioButton" Content="Yes" GroupName="MyGroup" Checked="RadioButton_Checked"/>
+            <RadioButton Name="NoRadioButton" Content="No" GroupName="MyGroup" Checked="RadioButton_Checked"/>
+            <TextBlock Name="RadioButtonTextBlock" />
+        </StackPanel>
+
+        <StackPanel Orientation="Horizontal" Grid.Row="3" Margin="20,10,0,10">
+            <ComboBox SelectionChanged="ComboBox_SelectionChanged">
+                <ComboBoxItem Content="Fourth"/>
+                <ComboBoxItem Content="Fifth"/>
+                <ComboBoxItem Content="Sixth"/>
+            </ComboBox>
+            <TextBlock Name="ComboBoxResultTextBlock"/>
+        </StackPanel>
+
+        <StackPanel Grid.Row="4" Grid.Column="1" Margin="20,10,0,10">
+            <ListBox Name="MyListBox" SelectionMode="Multiple" SelectionChanged="ListBox_SelectionChanged">
+                <ListBoxItem Content="First"/>
+                <ListBoxItem Content="Second"/>
+                <ListBoxItem Content="Third"/>
+            </ListBox>
+            <TextBlock Name="ListBoxResultTextBlock"/>
+        </StackPanel>
+
+        <Image Source="Assets/universal apps picture 1.png"
+               HorizontalAlignment="Left"
+               Width="250"
+               Height="50"
+               Grid.Row="5"
+               Stretch="None"
+               Margin="20,10,0,10" />
+
+        <StackPanel Orientation="Horizontal" Grid.Row="7" Margin="20,10,0,10">
+            <ToggleButton Name="MyToggleButton" Content="Premium Option" IsThreeState="True" Click="MyToggleButton_Click" />
+            <TextBlock Name="ToggleButtonResultTextBlock"/>
+        </StackPanel>
+        
+    </Grid>
        
-    
-    
 </Page>
