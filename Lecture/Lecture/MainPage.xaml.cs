@@ -26,71 +26,20 @@ namespace Lecture
         {
             this.InitializeComponent();
         }
-              
 
-        private void MyCheckBox_Tapped(object sender, TappedRoutedEventArgs e)
+        private void HamburgerButton_Click(object sender, RoutedEventArgs e)
         {
-            if (MyCheckBox.IsChecked.Value)
-            {
-                CheckBoxResultTextBlock.Text = "Yes";
-            }
-            else
-            {
-                CheckBoxResultTextBlock.Text = "No";
-            }
+            MySplitView.IsPaneOpen = !MySplitView.IsPaneOpen;
         }
 
-        private void RadioButton_Checked(object sender, RoutedEventArgs e)
+        private void IconsListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            if (YesRadioButton.IsChecked.Value)
+            if (ShareListBoxItem.IsSelected)
             {
-                RadioButtonTextBlock.Text = "Yes";
-            } else
+                ResultTextBlock.Text = "Share";
+            } else if (FavoritesListBoxItem.IsSelected)
             {
-                RadioButtonTextBlock.Text = "No";
-            }
-        }
-
-        private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            if (ComboBoxResultTextBlock != null)
-            {
-                ComboBox combo = (ComboBox)sender;
-                ComboBoxItem item = (ComboBoxItem)combo.SelectedItem;
-
-                ComboBoxResultTextBlock.Text = item.Content.ToString();
-            }
-        }
-
-        private void ListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            string itemsStr = "";
-            foreach(object item in MyListBox.Items)
-            {
-                ListBoxItem listBoxItem = (ListBoxItem)item;
-                if (listBoxItem.IsSelected)
-                {
-                    itemsStr += listBoxItem.Content.ToString() + " ";
-                }
-            }
-            ListBoxResultTextBlock.Text = itemsStr;
-        }
-
-        private void MyToggleButton_Click(object sender, RoutedEventArgs e)
-        {
-            if (MyToggleButton.IsChecked.HasValue)
-            {
-                if (MyToggleButton.IsChecked.Value == true)
-                {
-                    ToggleButtonResultTextBlock.Text = "True";
-                } else
-                {
-                    ToggleButtonResultTextBlock.Text = "False";
-
-                }
-            } else
-            {
-                ToggleButtonResultTextBlock.Text = "Null";
+                ResultTextBlock.Text = "Favorites";
             }
         }
     }
