@@ -15,33 +15,35 @@
         <RelativePanel>
             <StackPanel Orientation="Horizontal">
                 <Button Name="HamburgerButton" FontFamily="Segoe MDL2 Assets" Content="&#xE700;" FontSize="36" Click="HamburgerButton_Click"/>
-                <TextBlock Text="Title" FontSize="24" FontWeight="Bold" Margin="0,0,10,0" />
+                <Button Name="BackButton" FontFamily="Segoe MDL2 Assets" Content="&#xE72B;" FontSize="36" Click="BackButton_Click" />
+                <TextBlock Name="Title" Text="Financial" FontSize="24" FontWeight="Bold" Margin="20,0,0,0" VerticalAlignment="Center"/>
             </StackPanel>
-            
-            <Button Name="SearchButton" Content="Search" RelativePanel.AlignRightWithPanel="True" Margin="0,0,0,0" />
-            <TextBox Name="SearchTextBox" Text="Search" RelativePanel.LeftOf="SearchButton" Width="150" Margin="0,0,0,0" />
+
+            <Button Name="SearchButton" FontFamily="Segoe MDL2 Assets" FontSize="36" Content="&#xE734;" RelativePanel.AlignRightWithPanel="True" Margin="0,0,0,0" />
+            <TextBox Name="SearchTextBox" FontFamily="Segoe MDL2 Assets" FontSize="28" Text="Search"  RelativePanel.LeftOf="SearchButton" Width="150" Margin="0,0,0,0" />
             
         </RelativePanel>
         <SplitView Name="MySplitView" Grid.Row="1" DisplayMode="CompactOverlay" OpenPaneLength="200" CompactPaneLength="56" HorizontalAlignment="Left">
             <SplitView.Pane>
                 <ListBox SelectionMode="Single" Name="IconsListBox" SelectionChanged="IconsListBox_SelectionChanged">
-                    <ListBoxItem Name="ShareListBoxItem">
+                    <ListBoxItem Name="FinancialListBoxItem" FontFamily="Segoe MDL2 Assets">
                         <StackPanel Orientation="Horizontal">
-                            <TextBlock FontFamily="Segoe MDL2 Assets"  FontSize="36" Text="&#xE74A;" />
-                            <TextBlock Text="Share" FontSize="24" Margin="20,0,0,0"/>
+                            <TextBlock FontFamily="Segoe MDL2 Assets"  FontSize="36" Text="&#xE72D;" />
+                            <TextBlock Text="Financial" FontSize="24" Margin="20,0,0,0"/>
                         </StackPanel>
                     </ListBoxItem>
-                    <ListBoxItem Name="FavoritesListBoxItem">
+                    <ListBoxItem Name="FoodListBoxItem">
                         <StackPanel Orientation="Horizontal">
                             <TextBlock FontFamily="Segoe MDL2 Assets"  FontSize="36" Text="&#xE734;" />
-                            <TextBlock Text="Favorites" FontSize="24" Margin="20,0,0,0"/>
+                            <TextBlock Text="Food" FontSize="24" Margin="20,0,0,0"/>
                         </StackPanel>
                     </ListBoxItem>
                 </ListBox>
             </SplitView.Pane>
             <SplitView.Content>
-                <TextBlock Name="ResultTextBlock"/>
+                <Frame Name="InnerFrame"/>
             </SplitView.Content>
         </SplitView>
+
     </Grid>
 </Page>
