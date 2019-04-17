@@ -19,8 +19,8 @@
                 <TextBlock Name="Title" Text="Financial" FontSize="24" FontWeight="Bold" Margin="20,0,0,0" VerticalAlignment="Center"/>
             </StackPanel>
 
-            <Button Name="SearchButton" FontFamily="Segoe MDL2 Assets" FontSize="36" Content="&#xE734;" RelativePanel.AlignRightWithPanel="True" Margin="0,0,0,0" />
-            <TextBox Name="SearchTextBox" FontFamily="Segoe MDL2 Assets" FontSize="28" Text="Search"  RelativePanel.LeftOf="SearchButton" Width="150" Margin="0,0,0,0" />
+            <Button Name="SearchButton" FontFamily="Segoe MDL2 Assets" FontSize="36" Content="&#xE71E;" RelativePanel.AlignRightWithPanel="True" Margin="0,0,0,0" />
+            <TextBox Name="SearchTextBox" FontFamily="Segoe MDL2 Assets" FontSize="28" Text="Search"  RelativePanel.LeftOf="SearchButton" Width="250" Margin="0,0,0,0" />
             
         </RelativePanel>
         <SplitView Name="MySplitView" Grid.Row="1" DisplayMode="CompactOverlay" OpenPaneLength="200" CompactPaneLength="56" HorizontalAlignment="Left">

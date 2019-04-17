@@ -25,6 +25,7 @@ namespace Lab4
         public MainPage()
         {
             this.InitializeComponent();
+            BackButton.Visibility = Visibility.Collapsed;
             InnerFrame.Navigate(typeof(Financial));
         }
 
@@ -38,11 +39,13 @@ namespace Lab4
             if (FinancialListBoxItem.IsSelected)
             {
                 InnerFrame.Navigate(typeof(Financial));
+                BackButton.Visibility = Visibility.Collapsed;
                 Title.Text = "Financial";
             }
             else if (FoodListBoxItem.IsSelected)
             {
                 InnerFrame.Navigate(typeof(Food));
+                BackButton.Visibility = Visibility.Visible;
                 Title.Text = "Food";
             }
         }
@@ -52,6 +55,8 @@ namespace Lab4
             if (InnerFrame.CanGoBack)
             {
                 InnerFrame.GoBack();
+                BackButton.Visibility = Visibility.Collapsed;
+                Title.Text = "Financial";
             }
         }
     }
