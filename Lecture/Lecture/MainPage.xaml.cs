@@ -27,20 +27,16 @@ namespace Lecture
             this.InitializeComponent();
         }
 
-        private void HamburgerButton_Click(object sender, RoutedEventArgs e)
+        private void MyCalendarView_SelectedDatesChanged(CalendarView sender, CalendarViewSelectedDatesChangedEventArgs args)
         {
-            MySplitView.IsPaneOpen = !MySplitView.IsPaneOpen;
+            var selectedDates = sender.SelectedDates.Select(p => p.Date.Month.ToString() + "/" + p.Date.Day.ToString()).ToArray();
+            var values = string.Join(", ", selectedDates);
+            CalendarViewResultBlock.Text = values; 
         }
 
-        private void IconsListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void InnerFlyoutButton_Click(object sender, RoutedEventArgs e)
         {
-            if (ShareListBoxItem.IsSelected)
-            {
-                ResultTextBlock.Text = "Share";
-            } else if (FavoritesListBoxItem.IsSelected)
-            {
-                ResultTextBlock.Text = "Favorites";
-            }
+            MyFlyout.Hide();
         }
     }
 }

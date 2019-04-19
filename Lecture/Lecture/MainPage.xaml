@@ -10,34 +10,59 @@
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" >
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
-        <RelativePanel>
-            <Button Name="HamburgerButton" FontFamily="Segoe MDL2 Assets" Content="&#xE700;" FontSize="36" Click="HamburgerButton_Click"/>
-        </RelativePanel>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
 
-        <SplitView Name="MySplitView" Grid.Row="1" DisplayMode="CompactOverlay" OpenPaneLength="200" CompactPaneLength="56" HorizontalAlignment="Left">
-            <SplitView.Pane>
-                <ListBox SelectionMode="Single" Name="IconsListBox" SelectionChanged="IconsListBox_SelectionChanged">
-                    <ListBoxItem Name="ShareListBoxItem">
-                        <StackPanel Orientation="Horizontal">
-                            <TextBlock FontFamily="Segoe MDL2 Assets"  FontSize="36" Text="&#xE72D;" />
-                            <TextBlock Text="Share" FontSize="24" Margin="20,0,0,0"/>
-                        </StackPanel>
-                    </ListBoxItem>
-                    <ListBoxItem Name="FavoritesListBoxItem">
-                        <StackPanel Orientation="Horizontal">
-                            <TextBlock FontFamily="Segoe MDL2 Assets"  FontSize="36" Text="&#xE734;" />
-                            <TextBlock Text="Favorites" FontSize="24" Margin="20,0,0,0"/>
-                        </StackPanel>
-                    </ListBoxItem>
-                </ListBox>
-            </SplitView.Pane>
-            <SplitView.Content>
-                <TextBlock Name="ResultTextBlock"/>
-            </SplitView.Content>
-        </SplitView>
+        <TextBlock Grid.Row="0" Text="TimePicker" VerticalAlignment="Center" />
+        <TimePicker Grid.Row="0" Grid.Column="1" ClockIdentifier="12HourClock" Margin="20,0,0,20" />
+        <TextBlock Grid.Row="2" Text="CalendarView" VerticalAlignment="Center" />
+        <StackPanel Grid.Row="2" Grid.Column="1" Margin="20,0,0,20" HorizontalAlignment="Left">
+            <CalendarView Name="MyCalendarView" SelectionMode="Multiple" SelectedDatesChanged="MyCalendarView_SelectedDatesChanged" />
+            <TextBlock Name="CalendarViewResultBlock"/>
+        </StackPanel>
+        <TextBlock Grid.Row="3" Text="Flyout" VerticalAlignment="Center"/>
+        <Button Name="MyFlyoutButton" Margin="20,0,0,20" Grid.Row="3" Grid.Column="1" Content="Flyout">
+            <Button.Flyout>
+                <Flyout x:Name="MyFlyout">
+                    <StackPanel Margin="20,20,20,20">
+                        <TextBlock Text="You have just clicked the button of doom." Margin="0,0,0,10"/>
+                        <Button Name="InnerFlyoutButton" HorizontalAlignment="Left" Content="I accept my impending fate" Click="InnerFlyoutButton_Click" />
+                    </StackPanel>
+                </Flyout>
+            </Button.Flyout>
+        </Button>
+        <TextBlock Grid.Row="4" Text="FlyoutMenu" VerticalAlignment="Center"/>
+        <Button Grid.Row="4" Margin="20,0,0,20" Grid.Column="1" Content="FlyoutMenu">
+            <Button.Flyout>
+                <MenuFlyout Placement="Bottom">
+                    <MenuFlyoutItem Text="Item 1"/>
+                    <MenuFlyoutItem Text="Item 2"/>
+                    <MenuFlyoutSeparator/>
+                    <MenuFlyoutSubItem Text="Item 3">
+                        <MenuFlyoutItem Text="Item 4"/>
+                        <MenuFlyoutSubItem Text="Item 5">
+                            <MenuFlyoutItem Text="Item 6"/>
+                            <MenuFlyoutItem Text="Item 7"/>
+                        </MenuFlyoutSubItem>
+                    </MenuFlyoutSubItem>
+                    <MenuFlyoutSeparator/>
+                    <ToggleMenuFlyoutItem Text="Item 8"/>
+                </MenuFlyout>
+            </Button.Flyout>
+        </Button>
+        
     </Grid>
-       
 </Page>
