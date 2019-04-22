@@ -63,6 +63,7 @@
                 </MenuFlyout>
             </Button.Flyout>
         </Button>
-        
+        <TextBlock Grid.Row="5" Text="AutosuggestBox" VerticalAlignment="Center"/>
+        <AutoSuggestBox Name="myAutoSuggestBox" Margin="20,0,0,20" Grid.Row="5" Grid.Column="1" 
     </Grid>
 </Page>
