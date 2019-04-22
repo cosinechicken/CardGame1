@@ -7,70 +7,22 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
 
-    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" >
-        <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="*"/>
-        </Grid.RowDefinitions>
+    <Page.Resources>
+        <SolidColorBrush x:Key="MyBrush" Color="Brown"/>
+            <x:String x:Key="greeting"> Hello World</x:String>
+        <Style TargetType="Button" x:Key="MyButtonStyle">
+            <Setter Property="Background" Value="Blue"/>
+            <Setter Property="FontFamily" Value="Arial Black"/>
+            <Setter Property="FontSize" Value="36"/>
+        </Style>
+    </Page.Resources>
 
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="Auto"/>
-            <ColumnDefinition Width="*"/>
-        </Grid.ColumnDefinitions>
-
-        <TextBlock Grid.Row="0" Text="TimePicker" VerticalAlignment="Center" />
-        <TimePicker Grid.Row="0" Grid.Column="1" ClockIdentifier="12HourClock" Margin="20,0,0,20" />
-        <TextBlock Grid.Row="2" Text="CalendarView" VerticalAlignment="Center" />
-        <StackPanel Grid.Row="2" Grid.Column="1" Margin="20,0,0,20" HorizontalAlignment="Left">
-            <CalendarView Name="MyCalendarView" SelectionMode="Multiple" SelectedDatesChanged="MyCalendarView_SelectedDatesChanged" />
-            <TextBlock Name="CalendarViewResultBlock"/>
-        </StackPanel>
-        <TextBlock Grid.Row="3" Text="Flyout" VerticalAlignment="Center"/>
-        <Button Name="MyFlyoutButton" Margin="20,0,0,20" Grid.Row="3" Grid.Column="1" Content="Flyout">
-            <Button.Flyout>
-                <Flyout x:Name="MyFlyout">
-                    <StackPanel Margin="20,20,20,20">
-                        <TextBlock Text="You have just clicked the button of doom." Margin="0,0,0,10"/>
-                        <Button Name="InnerFlyoutButton" HorizontalAlignment="Left" Content="I accept my impending fate" Click="InnerFlyoutButton_Click" />
-                    </StackPanel>
-                </Flyout>
-            </Button.Flyout>
-        </Button>
-        <TextBlock Grid.Row="4" Text="FlyoutMenu" VerticalAlignment="Center"/>
-        <Button Grid.Row="4" Margin="20,0,0,20" Grid.Column="1" Content="FlyoutMenu">
-            <Button.Flyout>
-                <MenuFlyout Placement="Bottom">
-                    <MenuFlyoutItem Text="Item 1"/>
-                    <MenuFlyoutItem Text="Item 2"/>
-                    <MenuFlyoutSeparator/>
-                    <MenuFlyoutSubItem Text="Item 3">
-                        <MenuFlyoutItem Text="Item 4"/>
-                        <MenuFlyoutSubItem Text="Item 5">
-                            <MenuFlyoutItem Text="Item 6"/>
-                            <MenuFlyoutItem Text="Item 7"/>
-                        </MenuFlyoutSubItem>
-                    </MenuFlyoutSubItem>
-                    <MenuFlyoutSeparator/>
-                    <ToggleMenuFlyoutItem Text="Item 8"/>
-                </MenuFlyout>
-            </Button.Flyout>
-        </Button>
-        <TextBlock Grid.Row="5" Text="AutosuggestBox" VerticalAlignment="Center"/>
-        <AutoSuggestBox Name="myAutoSuggestBox" Margin="20,0,0,20" Grid.Row="5" Grid.Column="1" HorizontalAlignment="Left" QueryIcon="Find" PlaceholderText="Find something" Width="200" TextChanged="MyAutoSuggestBox_TextChanged" />
-        <TextBlock Text="Slider" Grid.Row="6" VerticalAlignment="Center"/>
-        <Slider Name="MySlider" Margin="20,0,0,20" Grid.Row="6" Grid.Column="1" HorizontalAlignment="Left" Maximum="100" Minimum="0" Width="200" />
-        <TextBlock Grid.Row="7" Text="ProgressBar" VerticalAlignment="Center" />
-        <ProgressBar Name="MyProgressBar" Margin="20,0,0,20" Grid.Row="7" Grid.Column="1" HorizontalAlignment="Left" Width="200" Maximum="100" Value="{x:Bind MySlider.Value, Mode=OneWay}" />
-        <TextBlock Grid.Row="8" Text="Progress Ring" VerticalAlignment="Center" />
-       +<ProgressRing Name="MyProgressRing" Margin="20,0,0,20" Grid.Row="8" Grid.Column="1" HorizontalAlignment="Left" Width="50" Height="50" IsActive="True"/>
-        
-    </Grid>
+    <StackPanel>
+        <TextBlock Text="{StaticResource greeting}" Foreground="{StaticResource MyBrush}" />
+        <Button Content="My Button Style Example" Height="100" Style="{StaticResource MyButtonStyle}" />
+        <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
+            <Image Source="Assets/Financial.png" Height="800" Stretch="None"/>
+        </ScrollViewer>
+    </StackPanel>
+    
 </Page>
