@@ -64,6 +64,13 @@
             </Button.Flyout>
         </Button>
         <TextBlock Grid.Row="5" Text="AutosuggestBox" VerticalAlignment="Center"/>
-        <AutoSuggestBox Name="myAutoSuggestBox" Margin="20,0,0,20" Grid.Row="5" Grid.Column="1" 
+        <AutoSuggestBox Name="myAutoSuggestBox" Margin="20,0,0,20" Grid.Row="5" Grid.Column="1" HorizontalAlignment="Left" QueryIcon="Find" PlaceholderText="Find something" Width="200" TextChanged="MyAutoSuggestBox_TextChanged" />
+        <TextBlock Text="Slider" Grid.Row="6" VerticalAlignment="Center"/>
+        <Slider Name="MySlider" Margin="20,0,0,20" Grid.Row="6" Grid.Column="1" HorizontalAlignment="Left" Maximum="100" Minimum="0" Width="200" />
+        <TextBlock Grid.Row="7" Text="ProgressBar" VerticalAlignment="Center" />
+        <ProgressBar Name="MyProgressBar" Margin="20,0,0,20" Grid.Row="7" Grid.Column="1" HorizontalAlignment="Left" Width="200" Maximum="100" Value="{x:Bind MySlider.Value, Mode=OneWay}" />
+        <TextBlock Grid.Row="8" Text="Progress Ring" VerticalAlignment="Center" />
+       +<ProgressRing Name="MyProgressRing" Margin="20,0,0,20" Grid.Row="8" Grid.Column="1" HorizontalAlignment="Left" Width="50" Height="50" IsActive="True"/>
+        
     </Grid>
 </Page>
