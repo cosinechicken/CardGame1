@@ -19,7 +19,12 @@
 
     <StackPanel>
         <TextBlock Text="{StaticResource greeting}" Foreground="{StaticResource MyBrush}" />
-        <Button Content="My Button Style Example" Height="100" Style="{StaticResource MyButtonStyle}" />
+        <Button Height="100" Style="{StaticResource MyButtonStyle}">
+            <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Horizontal">
+                <TextBlock Text="Hello" FontSize="36"/>
+                <TextBox Text="Goodbye" FontSize="24"/>
+            </StackPanel>
+        </Button>
         <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
             <Image Source="Assets/Financial.png" Height="800" Stretch="None"/>
         </ScrollViewer>
