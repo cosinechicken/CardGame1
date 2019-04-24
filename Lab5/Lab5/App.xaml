@@ -5,4 +5,9 @@
     xmlns:local="using:Lab5"
     RequestedTheme="Light">
 
+    <Application.Resources>
+        <ResourceDictionary>
+            <SolidColorBrush x:Key="White" Color="White"/>
+        </ResourceDictionary>
+    </Application.Resources>
 </Application>

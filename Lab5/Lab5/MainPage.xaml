@@ -31,31 +31,38 @@
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
         
-        <Button Name="DonutButton" Height="100" HorizontalAlignment="Stretch" Style="{StaticResource HeaderButton}">
+        <Button Name="DonutButton" Grid.Column="0" Height="100" HorizontalAlignment="Stretch" Style="{StaticResource HeaderButton}" Click="DonutClick">
             <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Horizontal">
                 <Image Source="Assets/DonutsIcon.png" Width="20"/>
                 <TextBlock Text="Donuts" FontSize="18" Foreground="{StaticResource White}" Margin="10,0,0,0"/>
             </StackPanel>
         </Button>
-        <Button Name="CoffeeButton" Grid.Column="1" Height="100" HorizontalAlignment="Stretch" Style="{StaticResource HeaderButton}">
+        <Button Name="CoffeeButton" Grid.Column="1" Height="100" HorizontalAlignment="Stretch" Style="{StaticResource HeaderButton}" Click="CoffeeClick">
             <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Horizontal">
                 <Image Source="Assets/CoffeeIcon.png" Width="20"/>
                 <TextBlock Text="Coffee" FontSize="18" Foreground="{StaticResource White}" Margin="10,0,0,0"/>
             </StackPanel>
         </Button>
-        <Button Name="ScheduleButton" Grid.Column="2" Height="100" HorizontalAlignment="Stretch" Style="{StaticResource HeaderButton}">
+        <Button Name="ScheduleButton" Grid.Column="2" Height="100" HorizontalAlignment="Stretch" Style="{StaticResource HeaderButton}" Click="ScheduleClick">
             <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Horizontal">
                 <Image Source="Assets/ScheduleIcon.png" Width="20"/>
                 <TextBlock Text="Schedule" FontSize="18" Foreground="{StaticResource White}" Margin="10,0,0,0"/>
             </StackPanel>
         </Button>
-        <Button Name="CompleteButton" Grid.Column="3" Height="100" HorizontalAlignment="Stretch" Style="{StaticResource HeaderButton}">
+        <Button Name="CompleteButton" Grid.Column="3" Height="100" HorizontalAlignment="Stretch" Style="{StaticResource HeaderButton}" Click="CompleteClick">
             <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Horizontal">
                 <Image Source="Assets/CompleteIcon.png" Width="20"/>
                 <TextBlock Text="Complete" FontSize="18" Foreground="{StaticResource White}" Margin="10,0,0,0"/>
             </StackPanel>
         </Button>
-        
-        <Frame Name="InnerFrame" Grid.Row="1"/>
+
+        <Grid Grid.Row="1" Grid.ColumnSpan="4">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="2*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Frame Name="InnerFrame" Grid.Column="0" />
+            <Image Source="Assets/Background.png" Grid.Column="1" Stretch="UniformToFill"/>
+        </Grid>
     </Grid>
 </Page>

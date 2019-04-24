@@ -5,10 +5,40 @@
     xmlns:local="using:Lab5"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    mc:Ignorable="d"
-    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    mc:Ignorable="d">
 
-    <Grid>
+    <StackPanel Background="#3C1F19">
+        <Image Source="Assets\WhiteGoNuts.png"  Width="150" HorizontalAlignment="Left" Margin="20,20,20,20"/>
+        <StackPanel HorizontalAlignment="Center" Orientation="Horizontal">
+            <Button Content="Roast" Foreground="{StaticResource White}" Margin="10,10,10,10" FontSize="18">
+                <Button.Flyout>
+                    <MenuFlyout Placement="Bottom">
+                        <MenuFlyoutItem Text="None"/>
+                        <MenuFlyoutItem Text="Dark"/>
+                        <MenuFlyoutItem Text="Medium"/>
+                    </MenuFlyout>
+                </Button.Flyout>
+            </Button>
 
-    </Grid>
+            <Button Content="Sweetener" Foreground="{StaticResource White}" Margin="10,10,10,10" FontSize="18">
+                <Button.Flyout>
+                    <MenuFlyout Placement="Bottom">
+                        <MenuFlyoutItem Text="None"/>
+                        <MenuFlyoutItem Text="Sugar"/>
+                    </MenuFlyout>
+                </Button.Flyout>
+            </Button>
+
+            <Button Content="Cream" Foreground="{StaticResource White}" Margin="10,10,10,10" FontSize="18">
+                <Button.Flyout>
+                    <MenuFlyout Placement="Bottom">
+                        <MenuFlyoutItem Text="None"/>
+                        <MenuFlyoutItem Text="2% Milk"/>
+                        <MenuFlyoutItem Text="Whole Milk"/>
+                    </MenuFlyout>
+                </Button.Flyout>
+            </Button>
+        </StackPanel>
+        <TextBlock Name="CoffeeTextBlock" Text="Coffee: " Foreground="{StaticResource White}" Margin="20,20,20,20" FontSize="18"/>
+    </StackPanel>
 </Page>
