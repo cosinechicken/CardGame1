@@ -10,7 +10,7 @@
     <StackPanel Background="#3C1F19">
         <Image Source="Assets\WhiteGoNuts.png"  Width="150" HorizontalAlignment="Left" Margin="20,20,20,20"/>
         <StackPanel HorizontalAlignment="Center" Orientation="Horizontal">
-            <Button Content="Roast" Foreground="{StaticResource White}" Margin="10,10,10,10" FontSize="18">
+            <Button Name="RoastButton" Content="Roast" Foreground="{StaticResource White}" Margin="10,10,10,10" FontSize="18">
                 <Button.Flyout>
                     <MenuFlyout Placement="Bottom">
                         <MenuFlyoutItem Text="None"/>
@@ -20,7 +20,7 @@
                 </Button.Flyout>
             </Button>
 
-            <Button Content="Sweetener" Foreground="{StaticResource White}" Margin="10,10,10,10" FontSize="18">
+            <Button Name="SweetenerButton" Content="Sweetener" Foreground="{StaticResource White}" Margin="10,10,10,10" FontSize="18">
                 <Button.Flyout>
                     <MenuFlyout Placement="Bottom">
                         <MenuFlyoutItem Text="None"/>
@@ -29,7 +29,7 @@
                 </Button.Flyout>
             </Button>
 
-            <Button Content="Cream" Foreground="{StaticResource White}" Margin="10,10,10,10" FontSize="18">
+            <Button Name="CreamButton" Content="Cream" Foreground="{StaticResource White}" Margin="10,10,10,10" FontSize="18">
                 <Button.Flyout>
                     <MenuFlyout Placement="Bottom">
                         <MenuFlyoutItem Text="None"/>
