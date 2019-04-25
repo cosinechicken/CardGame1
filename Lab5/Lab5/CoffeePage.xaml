@@ -13,9 +13,9 @@
             <Button Name="RoastButton" Content="Roast" Foreground="{StaticResource White}" Margin="10,10,10,10" FontSize="18">
                 <Button.Flyout>
                     <MenuFlyout Placement="Bottom">
-                        <MenuFlyoutItem Text="None"/>
-                        <MenuFlyoutItem Text="Dark"/>
-                        <MenuFlyoutItem Text="Medium"/>
+                        <MenuFlyoutItem Name="RNone" Text="None" Click="RoastNone"/>
+                        <MenuFlyoutItem Name="RDark" Text="Dark" Click="RoastDark"/>
+                        <MenuFlyoutItem Name="RMedium" Text="Medium" Click="RoastMedium"/>
                     </MenuFlyout>
                 </Button.Flyout>
             </Button>
@@ -23,8 +23,8 @@
             <Button Name="SweetenerButton" Content="Sweetener" Foreground="{StaticResource White}" Margin="10,10,10,10" FontSize="18">
                 <Button.Flyout>
                     <MenuFlyout Placement="Bottom">
-                        <MenuFlyoutItem Text="None"/>
-                        <MenuFlyoutItem Text="Sugar"/>
+                        <MenuFlyoutItem Name="SNone" Text="None" Click="SweetenerNone"/>
+                        <MenuFlyoutItem Name="SSugar" Text="Sugar" Click="SweetenerSugar"/>
                     </MenuFlyout>
                 </Button.Flyout>
             </Button>
@@ -32,9 +32,9 @@
             <Button Name="CreamButton" Content="Cream" Foreground="{StaticResource White}" Margin="10,10,10,10" FontSize="18">
                 <Button.Flyout>
                     <MenuFlyout Placement="Bottom">
-                        <MenuFlyoutItem Text="None"/>
-                        <MenuFlyoutItem Text="2% Milk"/>
-                        <MenuFlyoutItem Text="Whole Milk"/>
+                        <MenuFlyoutItem Name="CNone" Text="None" Click="CreamNone"/>
+                        <MenuFlyoutItem Name="C2Milk" Text="2% Milk" Click="Cream2Milk"/>
+                        <MenuFlyoutItem Name="CWholeMilk" Text="Whole Milk" Click="CreamWholeMilk"/>
                     </MenuFlyout>
                 </Button.Flyout>
             </Button>

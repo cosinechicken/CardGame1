@@ -22,9 +22,79 @@ namespace Lab5
     /// </summary>
     public sealed partial class CoffeePage : Page
     {
+        string R = "";
+        string S = "";
+        string C = "";
+
         public CoffeePage()
         {
             this.InitializeComponent();
+        }
+
+        private void DisplayCoffee()
+        {
+            string str = "";
+            if (!R.Equals(""))
+            {
+                str += R;
+                if (!S.Equals(""))
+                {
+                    str += (" + " + S);
+                }
+                if (!C.Equals(""))
+                {
+                    str += (" + " + C);
+                }
+            }
+            CoffeeTextBlock.Text = ("Coffee: " + str);
+        }
+
+        private void RoastNone(object sender, RoutedEventArgs e)
+        {
+            R = "";
+            DisplayCoffee();
+        }
+
+        private void RoastDark(object sender, RoutedEventArgs e)
+        {
+            R = "Dark";
+            DisplayCoffee();
+        }
+
+        private void RoastMedium(object sender, RoutedEventArgs e)
+        {
+            R = "Medium";
+            DisplayCoffee();
+        }
+
+        private void SweetenerNone(object sender, RoutedEventArgs e)
+        {
+            S = "";
+            DisplayCoffee();
+        }
+
+        private void SweetenerSugar(object sender, RoutedEventArgs e)
+        {
+            S = "Sugar";
+            DisplayCoffee();
+        }
+
+        private void CreamNone(object sender, RoutedEventArgs e)
+        {
+            C = "";
+            DisplayCoffee();
+        }
+
+        private void Cream2Milk(object sender, RoutedEventArgs e)
+        {
+            C = "2% Milk";
+            DisplayCoffee();
+        }
+
+        private void CreamWholeMilk(object sender, RoutedEventArgs e)
+        {
+            C = "Whole Milk";
+            DisplayCoffee();
         }
     }
 }
