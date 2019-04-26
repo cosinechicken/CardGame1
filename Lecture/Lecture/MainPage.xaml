@@ -5,29 +5,28 @@
     xmlns:local="using:Lecture"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:data="using:Lecture"
     mc:Ignorable="d">
 
-    <Page.Resources>
-        <SolidColorBrush x:Key="MyBrush" Color="Brown"/>
-            <x:String x:Key="greeting"> Hello World</x:String>
-        <Style TargetType="Button" x:Key="MyButtonStyle">
-            <Setter Property="Background" Value="Blue"/>
-            <Setter Property="FontFamily" Value="Arial Black"/>
-            <Setter Property="FontSize" Value="36"/>
-        </Style>
-    </Page.Resources>
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" Margin="20">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="100"/>
+        </Grid.RowDefinitions>
 
-    <StackPanel>
-        <TextBlock Text="{StaticResource greeting}" Foreground="{StaticResource MyBrush}" />
-        <Button Height="100" Style="{StaticResource MyButtonStyle}">
-            <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Horizontal">
-                <TextBlock Text="Hello" FontSize="36"/>
-                <TextBox Text="Goodbye" FontSize="24"/>
-            </StackPanel>
-        </Button>
-        <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
-            <Image Source="Assets/Financial.png" Height="800" Stretch="None"/>
-        </ScrollViewer>
-    </StackPanel>
+        <GridView ItemsSource="x:Bind Books">
+            <GridView.ItemTemplate>
+                <DataTemplate x:DataType="data:Book">
+                    <StackPanel>
+                        <Image Width="150" Source="{x:Bind CoverImage}"/>
+                        <TextBlock FontSize="16" Text="{x:Bind Title}"/>
+                        <TextBlock FontSize="10" Text="{x:Bind Author}"/>
+                    </StackPanel>
+                </DataTemplate>
+            </GridView.ItemTemplate>
+        </GridView>
+        
+        <TextBlock Grid.Row="1" Name="ResultTextBlock" FontSize="24" Foreground="Red" FontWeight="Bold" Margin="0,20,0,0"/>
+    </Grid>
     
 </Page>

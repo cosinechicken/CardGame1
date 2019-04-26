@@ -22,9 +22,12 @@ namespace Lecture
     /// </summary>
     public sealed partial class MainPage : Page
     {
+        private List<Book> Books;
+
         public MainPage()
         {
             this.InitializeComponent();
+            Books = BookManager.GetBooks();
         }
         
 
