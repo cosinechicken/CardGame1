@@ -14,11 +14,11 @@
             <RowDefinition Height="100"/>
         </Grid.RowDefinitions>
 
-        <GridView ItemsSource="x:Bind Books">
+        <GridView ItemsSource="{x:Bind Books}" IsItemClickEnabled="True" ItemClick="GridView_ItemClick">
             <GridView.ItemTemplate>
                 <DataTemplate x:DataType="data:Book">
                     <StackPanel>
-                        <Image Width="150" Source="{x:Bind CoverImage}"/>
+                        <Image Width="150" Height="100" Source="{x:Bind CoverImage}"/>
                         <TextBlock FontSize="16" Text="{x:Bind Title}"/>
                         <TextBlock FontSize="10" Text="{x:Bind Author}"/>
                     </StackPanel>

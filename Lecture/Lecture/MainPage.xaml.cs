@@ -28,9 +28,13 @@ namespace Lecture
         {
             this.InitializeComponent();
             Books = BookManager.GetBooks();
+            
         }
-        
 
-
+        private void GridView_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            var book = (Book)e.ClickedItem;
+            ResultTextBlock.Text = "You selected " + book.Title;
+        }
     }
 }
