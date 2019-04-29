@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -8,9 +9,9 @@ namespace Lecture
 {
     public class BookManager
     {
-        public static List<Book> GetBooks()
+        public static ObservableCollection<Book> GetBooks()
         {
-            var books = new List<Book>();
+            var books = new ObservableCollection<Book>();
 
             books.Add(new Book { BookId = 1, Title = "Vulpate", Author = "Futurum", CoverImage = "Assets/1.png" });
             books.Add(new Book { BookId = 2, Title = "Mazia", Author = "Sequiter Que", CoverImage = "Assets/2.png" });

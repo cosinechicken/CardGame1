@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
@@ -22,7 +23,7 @@ namespace Lecture
     /// </summary>
     public sealed partial class MainPage : Page
     {
-        private List<Book> Books;
+        private ObservableCollection<Book> Books;
 
         public MainPage()
         {
@@ -35,6 +36,11 @@ namespace Lecture
         {
             var book = (Book)e.ClickedItem;
             ResultTextBlock.Text = "You selected " + book.Title;
+        }
+
+        private void NewBook_Click(object sender, RoutedEventArgs e)
+        {
+            Books.Add(new Book { BookId = 4, Title = "Vulpate", Author = "Futurum", CoverImage = "Assets/1.png" });
         }
     }
 }
