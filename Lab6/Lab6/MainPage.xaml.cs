@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Lab6.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -22,9 +23,19 @@ namespace Lab6
     /// </summary>
     public sealed partial class MainPage : Page
     {
+        public MainPageViewModel ViewModel { get; set; } = new MainPageViewModel();
+
         public MainPage()
         {
             this.InitializeComponent();
+        }
+
+        protected async override void OnNavigatedTo(NavigationEventArgs e)
+        {
+            ViewModel.Description = "Dumy Description";
+            ViewModel.LocationName = "Dummy Location";
+            ViewModel.Temperature = "Dummy Temperature";
+            ViewModel.ImageUrl = "https://icons.wxug.com/i/c/c/snow.gif";
         }
     }
 }
