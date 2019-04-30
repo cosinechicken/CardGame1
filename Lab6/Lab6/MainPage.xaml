@@ -11,9 +11,12 @@
         <StackPanel VerticalAlignment="Center">
             <Image Name="ResultImage" Width="200" Height="200" HorizontalAlignment="Center">
                 <Image.Source>
-                    
+                    <BitmapImage UriSource="{x:Bind ViewModel.ImageUrl, Mode=OneWay}"/>
                 </Image.Source>
             </Image>
+            <TextBlock Name="TemperatureTextBlock" Text="{x:Bind ViewModel.Temperature, Mode=OneWay}" FontSize="52" Foreground="White" HorizontalAlignment="Center"/>
+            <TextBlock Name="DescriptionTextBlock" Text="{x:Bind ViewModel.Description, Mode=OneWay}" FontSize="36" Foreground="White" HorizontalAlignment="Center"/>
+            <TextBlock Name="LocationnameTextBlock" Text="{x:Bind ViewModel.LocationName, Mode=OneWay}" FontSize="24" Foreground="White" HorizontalAlignment="Center" TextWrapping="Wrap"/>
         </StackPanel>
     </StackPanel>
 </Page>
