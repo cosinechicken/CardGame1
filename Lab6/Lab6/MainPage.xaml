@@ -9,6 +9,7 @@
 
     <StackPanel Background="LightBlue">
         <StackPanel VerticalAlignment="Center">
+            <AutoSuggestBox Name="LocationAutoSuggestBox" HorizontalAlignment="Center" QueryIcon="Find" PlaceholderText="Enter Location..." Width="300" TextChanged="LocationAutoSuggestBox_TextChanged" QuerySubmitted="LocationAutoSuggestion_QuerySubmitted"/>
             <Image Name="ResultImage" Width="200" Height="200" HorizontalAlignment="Center">
                 <Image.Source>
                     <BitmapImage UriSource="{x:Bind ViewModel.ImageUrl, Mode=OneWay}"/>
