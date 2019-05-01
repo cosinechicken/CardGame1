@@ -1,5 +1,6 @@
 ﻿using Lab6.Models;
 using Lab6.Models.AutoComplete;
+using Lab6.Models.Forecast;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -31,6 +32,15 @@ namespace Lab6
             string responseString = await httpClient.GetStringAsync(apiUrl);
             AutoCompleteRootObject suggestions = JsonConvert.DeserializeObject<AutoCompleteRootObject>(responseString);
             return suggestions;
+        }
+
+        public async Task<ForecastRootObject> GetForecasts(string cityLink)
+        {
+            HttpClient httpClient = new HttpClient();
+            string apiUrl = $"https://api.aerisapi.com/forecasts/{cityLink}?limit=4&filter=day&client_id={apiKey}&client_secret={secret}";
+            string responseString = await httpClient.GetStringAsync(apiUrl);
+            ForecastRootObject forecasts = JsonConvert.DeserializeObject<ForecastRootObject>(responseString);
+            return forecasts;
         }
     }
 }

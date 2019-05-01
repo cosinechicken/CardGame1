@@ -1,5 +1,6 @@
 ﻿using Lab6.Models;
 using Lab6.Models.AutoComplete;
+using Lab6.Models.Forecast;
 using Lab6.ViewModels;
 using System;
 using System.Collections.Generic;
@@ -39,8 +40,10 @@ namespace Lab6
             ViewModel.LocationName = "";
             ViewModel.Temperature = "Loading...";
             ViewModel.ImageUrl = "https://upload.wikimedia.org/wikipedia/commons/3/3a/Gray_circles_rotate.gif";
-
+            
+            
             await UpdateWeather("Seattle,WA");
+
         }
 
         private async Task UpdateWeather(string cityLink)
@@ -51,6 +54,8 @@ namespace Lab6
             ViewModel.LocationName = observationsRoot.response.place.name + ", " + observationsRoot.response.place.state + " " + observationsRoot.response.place.country;
             ViewModel.Temperature = "" + observationsRoot.response.ob.tempF;
             ViewModel.ImageUrl = GetIconURLFromName(observationsRoot.response.ob.icon);
+
+            ViewModel.Forecast.Clear();
         }
 
         private string GetIconURLFromName(string iconName)
