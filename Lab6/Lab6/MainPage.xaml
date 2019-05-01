@@ -19,7 +19,7 @@
             <TextBlock Name="TemperatureTextBlock" Text="{x:Bind ViewModel.Temperature, Mode=OneWay}" FontSize="52" Foreground="White" HorizontalAlignment="Center"/>
             <TextBlock Name="DescriptionTextBlock" Text="{x:Bind ViewModel.Description, Mode=OneWay}" FontSize="36" Foreground="White" HorizontalAlignment="Center"/>
             <TextBlock Name="LocationnameTextBlock" Text="{x:Bind ViewModel.LocationName, Mode=OneWay}" FontSize="24" Foreground="White" HorizontalAlignment="Center" TextWrapping="Wrap"/>
-            <GridView ItemsSource="{x:Bind ViewModel.Forecast}">
+            <GridView ItemsSource="{x:Bind ViewModel.Forecast}" HorizontalAlignment="Center" IsItemClickEnabled="False" Margin="20,20,20,20">
                 <GridView.ItemTemplate>
                     <DataTemplate x:DataType="data:ForecastDayViewModel">
                         <StackPanel>

@@ -56,6 +56,11 @@ namespace Lab6
             ViewModel.ImageUrl = GetIconURLFromName(observationsRoot.response.ob.icon);
 
             ViewModel.Forecast.Clear();
+            ForecastRootObject forecastRootObject = await weatherRetriever.GetForecasts(cityLink);
+            ViewModel.Forecast.Add(new ForecastDayViewModel { Date = (forecastRootObject.response[0].periods[0].dateTimeISO.Month + "/" + forecastRootObject.response[0].periods[0].dateTimeISO.Day), Temp = (forecastRootObject.response[0].periods[0].minTempF + "-" + forecastRootObject.response[0].periods[0].maxTempF), Description = forecastRootObject.response[0].periods[0].weather, ImageUrl = GetIconURLFromName(forecastRootObject.response[0].periods[0].icon)});
+            ViewModel.Forecast.Add(new ForecastDayViewModel { Date = (forecastRootObject.response[0].periods[1].dateTimeISO.Month + "/" + forecastRootObject.response[0].periods[1].dateTimeISO.Day), Temp = (forecastRootObject.response[0].periods[1].minTempF + "-" + forecastRootObject.response[0].periods[1].maxTempF), Description = forecastRootObject.response[0].periods[1].weather, ImageUrl = GetIconURLFromName(forecastRootObject.response[0].periods[1].icon) });
+            ViewModel.Forecast.Add(new ForecastDayViewModel { Date = (forecastRootObject.response[0].periods[2].dateTimeISO.Month + "/" + forecastRootObject.response[0].periods[2].dateTimeISO.Day), Temp = (forecastRootObject.response[0].periods[2].minTempF + "-" + forecastRootObject.response[0].periods[2].maxTempF), Description = forecastRootObject.response[0].periods[2].weather, ImageUrl = GetIconURLFromName(forecastRootObject.response[0].periods[2].icon) });
+            ViewModel.Forecast.Add(new ForecastDayViewModel { Date = (forecastRootObject.response[0].periods[3].dateTimeISO.Month + "/" + forecastRootObject.response[0].periods[3].dateTimeISO.Day), Temp = (forecastRootObject.response[0].periods[3].minTempF + "-" + forecastRootObject.response[0].periods[3].maxTempF), Description = forecastRootObject.response[0].periods[3].weather, ImageUrl = GetIconURLFromName(forecastRootObject.response[0].periods[3].icon) });
         }
 
         private string GetIconURLFromName(string iconName)
