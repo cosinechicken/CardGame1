@@ -23,14 +23,14 @@
                 <GridView.ItemTemplate>
                     <DataTemplate x:DataType="data:ForecastDayViewModel">
                         <StackPanel>
-                            <TextBlock Name="DateTextBlock" Text="{x:Bind Date}" FontSize="18" Foreground="White" HorizontalAlignment="Center"/>
-                            <TextBlock Name="TempTextBlock" Text="{x:Bind Temp}" FontSize="18" Foreground="White" HorizontalAlignment="Center"/>
+                            <TextBlock Name="DateTextBlock" Text="{x:Bind Date}" FontSize="18" Foreground="Black" HorizontalAlignment="Center"/>
+                            <TextBlock Name="TempTextBlock" Text="{x:Bind Temp}" FontSize="18" Foreground="Black" HorizontalAlignment="Center"/>
                             <Image Name="ResultImage" Width="150" Height="150" HorizontalAlignment="Center">
                                 <Image.Source>
                                     <BitmapImage UriSource="{x:Bind ImageUrl}"/>
                                 </Image.Source>
                             </Image>
-                            <TextBlock Name="DescriptionTextBlock" Text="{x:Bind Description}" FontSize="18" Foreground="White" HorizontalAlignment="Center"/>
+                            <TextBlock Name="DescriptionTextBlock" Text="{x:Bind Description}" FontSize="18" Foreground="Black" HorizontalAlignment="Center"/>
                         </StackPanel>
                     </DataTemplate>
                 </GridView.ItemTemplate>

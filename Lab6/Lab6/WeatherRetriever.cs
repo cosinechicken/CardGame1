@@ -34,10 +34,10 @@ namespace Lab6
             return suggestions;
         }
 
-        public async Task<ForecastRootObject> GetForecasts(string cityLink)
+        public async Task<ForecastRootObject> GetForecasts(string cityLink, int limit)
         {
             HttpClient httpClient = new HttpClient();
-            string apiUrl = $"https://api.aerisapi.com/forecasts/{cityLink}?limit=4&filter=day&client_id={apiKey}&client_secret={secret}";
+            string apiUrl = $"https://api.aerisapi.com/forecasts/{cityLink}?limit={limit}&filter=day&client_id={apiKey}&client_secret={secret}";
             string responseString = await httpClient.GetStringAsync(apiUrl);
             ForecastRootObject forecasts = JsonConvert.DeserializeObject<ForecastRootObject>(responseString);
             return forecasts;
