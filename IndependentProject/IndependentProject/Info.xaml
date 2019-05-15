@@ -1,0 +1,26 @@
+﻿<Page
+    x:Class="IndependentProject.Info"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:IndependentProject"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid>
+        <StackPanel>
+            <TextBlock HorizontalAlignment="Center" FontSize="28" Margin="20,20,20,20"> Instructions </TextBlock>
+            <TextBlock HorizontalAlignment="Left" FontSize="18" Margin="20,5,10,10">On sliders in the Settings page, the player chooses integers <Italic>n</Italic> and <Italic>k</Italic> such that <Italic>2 ≤ k ≤ n ≤ 20</Italic>.</TextBlock>
+            <TextBlock HorizontalAlignment="Left" FontSize="18" Margin="20,5,10,10">There are <Italic>2n</Italic> cards, all face down, so that for each <Italic>i = 1, 2, ... n</Italic>, there are two cards labelled <Italic>i</Italic>.</TextBlock>
+            <TextBlock HorizontalAlignment="Left" FontSize="18" Margin="20,5,10,10">On each move, the player chooses <Italic>k</Italic> of the <Italic>2n</Italic> cards, and those <Italic>k</Italic> cards are turned over for the player to see.</TextBlock>
+            <TextBlock HorizontalAlignment="Left" FontSize="18" Margin="20,5,10,10">If any two cards are the same, the player wins; otherwise, the chosen cards are turned back over and shuffled.</TextBlock>
+            <TextBlock HorizontalAlignment="Left" FontSize="18" Margin="20,5,10,10">However, there is a catch. This card game is evil, so it will give the ordering of cards which is the worst for the player. </TextBlock>
+            <TextBlock HorizontalAlignment="Left" FontSize="18" Margin="20,5,10,10">The cards will appear as buttons in the Play tab, and they turn from black to blue when chosen.</TextBlock>
+            <TextBlock HorizontalAlignment="Left" FontSize="18" Margin="20,5,10,10">When <Italic>k</Italic> cards are chosen, the player clicks the "Confirm" button to confirm their choice of cards.</TextBlock>
+
+            <TextBlock HorizontalAlignment="Center" FontSize="28" Margin="20,20,20,20">Credits</TextBlock>
+            
+        </StackPanel>
+    </Grid>
+</Page>
