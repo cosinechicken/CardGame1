@@ -9,6 +9,6 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <Grid>
-
+        <TextBlock Name="InfoTextBlock" FontSize="24" Text="Please select your settings in the Settings tab, and press the button."/>
     </Grid>
 </Page>

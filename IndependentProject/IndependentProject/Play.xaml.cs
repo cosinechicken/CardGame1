@@ -25,6 +25,10 @@ namespace IndependentProject
         public Play()
         {
             this.InitializeComponent();
+            
         }
+
+
+
     }
 }

@@ -23,9 +23,9 @@ namespace IndependentProject
     /// <summary>
     /// Code is from the following URL: https://www.youtube.com/watch?v=545NoF7Sab4&t=12s
     /// </summary>
-    public sealed partial class Settings : INotifyPropertyChanged
+    public sealed partial class Settings : Page, INotifyPropertyChanged
     {
-        private int _pairNumber;
+        private int _pairNumber=1;
         public int PairNumber
         {
             get { return _pairNumber; }
@@ -39,7 +39,7 @@ namespace IndependentProject
             }
         }
 
-        private int _chooseNumber;
+        private int _chooseNumber=1;
         public int ChooseNumber
         {
             get { return _chooseNumber; }
@@ -65,9 +65,11 @@ namespace IndependentProject
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
 
+        public bool UpdatedSettings = false;
+
         private void UpdateSettings_Click(object sender, RoutedEventArgs e)
         {
-
+            Frame.Navigate(typeof(Play));
         }
     }
 }

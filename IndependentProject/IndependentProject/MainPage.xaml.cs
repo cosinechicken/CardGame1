@@ -48,14 +48,9 @@ namespace IndependentProject
             else if (SettingsListBoxItem.IsSelected)
             {
                 InnerFrame.Navigate(typeof(Settings));
-                Title.Text = "Settings";
-            }
-            else if (PlayListBoxItem.IsSelected)
-            {
-                InnerFrame.Navigate(typeof(Play));
                 Title.Text = "Play";
             }
+            SettingsListBoxItem.IsSelected = false;
         }
-        
     }
 }
