@@ -5,10 +5,17 @@
     xmlns:local="using:IndependentProject"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:data="using:IndependentProject"
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <Grid>
-        <TextBlock Name="InfoTextBlock" FontSize="24" Text="Please select your settings in the Settings tab, and press the button."/>
+        <GridView ItemsSource="{x:Bind buttons}">
+            <GridView.ItemTemplate>
+                <DataTemplate x:DataType="data:Card">
+                    
+                </DataTemplate>
+            </GridView.ItemTemplate>
+        </GridView>
     </Grid>
 </Page>

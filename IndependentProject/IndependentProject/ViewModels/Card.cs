@@ -3,12 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using PropertyChanged;
 using System.ComponentModel;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 
-namespace IndependentProject
+namespace IndependentProject.ViewModels
 {
+    [ImplementPropertyChanged]
     public class Card : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;

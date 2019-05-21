@@ -106,5 +106,10 @@ namespace Lab6
                 await SearchForCities(args.QueryText);
             }
         }
+
+        private void Item_Click(object sender, ItemClickEventArgs e)
+        {
+            ((GridView)sender).Background = null;
+        }
     }
 }
