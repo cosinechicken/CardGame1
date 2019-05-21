@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
@@ -25,9 +26,18 @@ namespace IndependentProject
         public Play()
         {
             this.InitializeComponent();
-            
+        }
+        // This is the number of pairs of cards in total. 
+        private int PairNumber;
+        // This is the number of cards which the user can choose on each turn. 
+        private int ChooseNumber;
+        protected override void OnNavigatedTo(NavigationEventArgs e)
+        {
+            PairNumber = ((int[])e.Parameter)[0];
+            ChooseNumber = ((int[])e.Parameter)[1];
         }
 
+        public ObservableCollection<Card> buttons = new ObservableCollection<Card>();
 
 
     }

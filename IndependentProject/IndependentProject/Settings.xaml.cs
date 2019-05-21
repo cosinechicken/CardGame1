@@ -67,9 +67,9 @@ namespace IndependentProject
 
         public bool UpdatedSettings = false;
 
-        private void UpdateSettings_Click(object sender, RoutedEventArgs e)
+        private void Play_Click(object sender, RoutedEventArgs e)
         {
-            Frame.Navigate(typeof(Play));
+            Frame.Navigate(typeof(Play), new int[] { PairNumber, ChooseNumber} );
         }
     }
 }
