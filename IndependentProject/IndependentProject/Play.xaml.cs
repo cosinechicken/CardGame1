@@ -1,4 +1,5 @@
-﻿using System;
+﻿using IndependentProject;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.IO;
@@ -23,6 +24,8 @@ namespace IndependentProject
     /// </summary>
     public sealed partial class Play : Page
     {
+        private List<Card> Cards;
+
         public Play()
         {
             this.InitializeComponent();
@@ -35,10 +38,12 @@ namespace IndependentProject
         {
             PairNumber = ((int[])e.Parameter)[0];
             ChooseNumber = ((int[])e.Parameter)[1];
+            Cards = CardManager.GetCards(PairNumber);
         }
 
-        public ObservableCollection<Card> buttons = new ObservableCollection<Card>();
-
-
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            ((Button)sender).Content += "1";
+        }
     }
 }

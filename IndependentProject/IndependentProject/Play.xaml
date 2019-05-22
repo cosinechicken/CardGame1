@@ -10,12 +10,18 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <Grid>
-        <GridView ItemsSource="{x:Bind buttons}">
-            <GridView.ItemTemplate>
-                <DataTemplate x:DataType="data:Card">
-                    
-                </DataTemplate>
-            </GridView.ItemTemplate>
-        </GridView>
+        <StackPanel>
+            <ScrollViewer HorizontalScrollMode="Enabled" HorizontalScrollBarVisibility="Auto">
+                <GridView ItemsSource="{x:Bind Cards}" HorizontalAlignment="Center">
+                    <GridView.ItemTemplate>
+                        <DataTemplate x:DataType="data:Card">
+                            <StackPanel>
+                                <Button Height="35" Width="60" Margin="2,2,2,2" Click="Button_Click"/>
+                            </StackPanel>
+                        </DataTemplate>
+                    </GridView.ItemTemplate>
+                </GridView>
+            </ScrollViewer>
+        </StackPanel>
     </Grid>
 </Page>
