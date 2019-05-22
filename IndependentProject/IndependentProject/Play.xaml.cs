@@ -41,9 +41,10 @@ namespace IndependentProject
             Cards = CardManager.GetCards(PairNumber);
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void GridView_Click(object sender, ItemClickEventArgs e)
         {
-            ((Button)sender).Content += "1";
+            TestBlock.Text = (sender.ToString() + " " + e.ToString());
+            
         }
     }
 }

@@ -12,16 +12,18 @@
     <Grid>
         <StackPanel>
             <ScrollViewer HorizontalScrollMode="Enabled" HorizontalScrollBarVisibility="Auto">
-                <GridView ItemsSource="{x:Bind Cards}" HorizontalAlignment="Center">
+                <GridView ItemsSource="{x:Bind Cards}" HorizontalAlignment="Center" IsItemClickEnabled="True" ItemClick="GridView_Click">
                     <GridView.ItemTemplate>
                         <DataTemplate x:DataType="data:Card">
                             <StackPanel>
-                                <Button Height="35" Width="60" Margin="2,2,2,2" Click="Button_Click"/>
+                                <TextBlock Text="{x:Bind Set}"/>
+                                <TextBlock Text="{x:Bind SetLast}"/>
                             </StackPanel>
                         </DataTemplate>
                     </GridView.ItemTemplate>
                 </GridView>
             </ScrollViewer>
+            <TextBlock Name="TestBlock" Text="yeyyy" FontSize="16"/>
         </StackPanel>
     </Grid>
 </Page>
