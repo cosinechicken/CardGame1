@@ -15,15 +15,13 @@
                 <GridView ItemsSource="{x:Bind Cards}" HorizontalAlignment="Center" IsItemClickEnabled="True" ItemClick="GridView_Click">
                     <GridView.ItemTemplate>
                         <DataTemplate x:DataType="data:Card">
-                            <StackPanel>
-                                <TextBlock Text="{x:Bind Set}"/>
-                                <TextBlock Text="{x:Bind SetLast}"/>
-                            </StackPanel>
+                            <StackPanel/>
                         </DataTemplate>
                     </GridView.ItemTemplate>
                 </GridView>
             </ScrollViewer>
             <TextBlock Name="TestBlock" Text="yeyyy" FontSize="16"/>
+            <Button Name="ConfirmButton" Content="Confirm Selection"/>
         </StackPanel>
     </Grid>
 </Page>

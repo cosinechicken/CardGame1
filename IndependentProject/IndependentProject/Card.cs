@@ -11,8 +11,9 @@ namespace IndependentProject
     {
         public event PropertyChangedEventHandler PropertyChanged;
 
-        public bool Set { get; set; } = false;
-        public bool SetLast { get; set; } = false;
+        public int Id { get; set; }
+        public bool Set { get; set; }
+        public bool SetLast { get; set; }
 
     }
 }

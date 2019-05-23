@@ -16,7 +16,7 @@ namespace IndependentProject
 
             for (int i = 0; i < 2*PairNumber; i++)
             {
-                cards.Add(new Card {Set = false, SetLast = false });
+                cards.Add(new Card { Id = i, Set = false, SetLast = false });
             }
 
             return cards;

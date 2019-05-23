@@ -34,17 +34,37 @@ namespace IndependentProject
         private int PairNumber;
         // This is the number of cards which the user can choose on each turn. 
         private int ChooseNumber;
+        private bool[] chosenArr;
+        private int chosenNum;
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
             PairNumber = ((int[])e.Parameter)[0];
             ChooseNumber = ((int[])e.Parameter)[1];
             Cards = CardManager.GetCards(PairNumber);
+            chosenArr = new bool[PairNumber * 2];
+            chosenNum = 0;
         }
 
         private void GridView_Click(object sender, ItemClickEventArgs e)
         {
-            TestBlock.Text = (sender.ToString() + " " + e.ToString());
-            
+            Card output = e.ClickedItem as Card;
+            if (chosenArr[output.Id])
+            {
+                chosenArr[output.Id] = false;
+                chosenNum--;
+            } else
+            {
+                chosenArr[output.Id] = true;
+                chosenNum++;
+            }
+            if (chosenNum == ChooseNumber)
+            {
+                ConfirmButton.Visibility = Visibility.Visible;
+            } else
+            {
+                ConfirmButton.Visibility = Visibility.Collapsed;
+            }
+            TestBlock.Text = chosenNum.ToString();
         }
     }
 }
