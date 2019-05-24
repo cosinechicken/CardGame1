@@ -15,7 +15,9 @@
                 <GridView ItemsSource="{x:Bind Cards}" HorizontalAlignment="Center" IsItemClickEnabled="True" ItemClick="GridView_Click">
                     <GridView.ItemTemplate>
                         <DataTemplate x:DataType="data:Card">
-                            <StackPanel/>
+                            <StackPanel Background="LightBlue">
+                                <TextBlock Text="Hi"/>
+                            </StackPanel>
                         </DataTemplate>
                     </GridView.ItemTemplate>
                 </GridView>
