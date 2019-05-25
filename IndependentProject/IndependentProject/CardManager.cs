@@ -3,22 +3,23 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
+using System.Collections.ObjectModel;
 
 namespace IndependentProject
 {
     public class CardManager
     {
-        public static List<Card> GetCards(int PairNumber)
+        public static ObservableCollection<Card> GetCards(int PairNumber)
         {
-            var cards = new List<Card>();
+            var cards = new ObservableCollection<Card>();
 
             for (int i = 0; i < 2*PairNumber; i++)
             {
-                cards.Add(new Card { Id = i, Set = false, SetLast = false });
+                cards.Add(new Card { Id = i, Background = new SolidColorBrush(Windows.UI.Colors.LightBlue), Border = new SolidColorBrush(Windows.UI.Colors.White), Text = "hello"});
             }
-
             return cards;
         }
     }

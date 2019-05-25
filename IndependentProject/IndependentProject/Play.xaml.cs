@@ -24,7 +24,7 @@ namespace IndependentProject
     /// </summary>
     public sealed partial class Play : Page
     {
-        private List<Card> Cards;
+        private ObservableCollection<Card> Cards;
 
         public Play()
         {
@@ -43,6 +43,8 @@ namespace IndependentProject
             Cards = CardManager.GetCards(PairNumber);
             chosenArr = new bool[PairNumber * 2];
             chosenNum = 0;
+            ConfirmButton.Visibility = Visibility.Collapsed;
+            
         }
 
         private void GridView_Click(object sender, ItemClickEventArgs e)
@@ -52,10 +54,16 @@ namespace IndependentProject
             {
                 chosenArr[output.Id] = false;
                 chosenNum--;
+                Cards[output.Id].Background = new SolidColorBrush(Windows.UI.Colors.LightBlue);
+                Cards[output.Id].Text = "eoifwefewjds";
+                CardsGridView.UpdateLayout();
             } else
             {
                 chosenArr[output.Id] = true;
                 chosenNum++;
+                Cards[output.Id].Background = new SolidColorBrush(Windows.UI.Colors.Red);
+                Cards[output.Id].Text = "eoifjds";
+                CardsGridView.UpdateLayout();
             }
             if (chosenNum == ChooseNumber)
             {
