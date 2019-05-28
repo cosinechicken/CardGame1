@@ -17,31 +17,8 @@ namespace IndependentProject
         public event PropertyChangedEventHandler PropertyChanged;
 
         public int Id { get; set; }
-        public Brush Border
-        {
-            get { return _border; }
-            set
-            {
-                _border = value;
-                RaisePropertyChanged("Border");
-            }
-        }
-        public Brush Background
-        {
-            get { return _background; }
-            set
-            {
-                _background = value;
-                RaisePropertyChanged("Background");
-            }
-        }
+        public Brush Border { get; set; }
+        public Brush Background { get; set; }
         public string Text { get; set; }
-        protected void RaisePropertyChanged(string name)
-        {
-            if (PropertyChanged != null)
-            {
-                PropertyChanged(this, new PropertyChangedEventArgs(name));
-            }
-        }
     }
 }

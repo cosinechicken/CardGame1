@@ -12,7 +12,7 @@
     <Grid>
         <StackPanel>
             <ScrollViewer HorizontalScrollMode="Enabled" HorizontalScrollBarVisibility="Auto">
-                <GridView Name="CardsGridView" ItemsSource="{x:Bind Cards, Mode=OneWay}" HorizontalAlignment="Center" Margin="0,0,0,0" IsItemClickEnabled="True" ItemClick="GridView_Click">
+                <GridView Name="CardsGridView" ItemsSource="{x:Bind Cards, Mode=OneWay}" HorizontalAlignment="Center" Margin="10,10,10,10" IsItemClickEnabled="True" ItemClick="GridView_Click">
                     <GridView.ItemTemplate>
                         <DataTemplate x:DataType="data:Card">
                             <StackPanel BorderThickness="2" BorderBrush="{x:Bind Border, Mode=OneWay}" Background="{x:Bind Background, Mode=OneWay}" HorizontalAlignment="Left" VerticalAlignment="Stretch" Padding="5,10,5,10">
@@ -22,8 +22,9 @@
                     </GridView.ItemTemplate>
                 </GridView>
             </ScrollViewer>
+            <TextBlock Name="WinBlock" Text="You Win!" FontSize="36"/>
             <TextBlock Name="TestBlock" Text="yeyyy" FontSize="16"/>
-            <Button Name="ConfirmButton" Content="Confirm Selection"/>
+            <Button Name="ConfirmButton" Content="Confirm Selection" Click="ConfirmButton_Click"/>
         </StackPanel>
     </Grid>
 </Page>

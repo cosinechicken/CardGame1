@@ -18,7 +18,7 @@ namespace IndependentProject
 
             for (int i = 0; i < 2*PairNumber; i++)
             {
-                cards.Add(new Card { Id = i, Background = new SolidColorBrush(Windows.UI.Colors.LightBlue), Border = new SolidColorBrush(Windows.UI.Colors.White), Text = "hello"});
+                cards.Add(new Card { Id = i, Background = new SolidColorBrush(Windows.UI.Colors.LightBlue), Border = new SolidColorBrush(Windows.UI.Colors.White), Text = "Card" });
             }
             return cards;
         }
