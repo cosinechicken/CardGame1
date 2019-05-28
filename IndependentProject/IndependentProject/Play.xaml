@@ -25,6 +25,7 @@
             <TextBlock Name="WinBlock" Text="You Win!" FontSize="36"/>
             <TextBlock Name="TestBlock" Text="yeyyy" FontSize="16"/>
             <Button Name="ConfirmButton" Content="Confirm Selection" Click="ConfirmButton_Click"/>
+            <Button Name="ShuffleButton" Content="Shuffle cards" Click="ShuffleButton_Click"/>
         </StackPanel>
     </Grid>
 </Page>

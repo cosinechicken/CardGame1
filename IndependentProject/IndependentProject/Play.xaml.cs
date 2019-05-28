@@ -36,6 +36,8 @@ namespace IndependentProject
         private int ChooseNumber;
         private bool[] chosenArr;
         private int chosenNum;
+        // This is whether or not we are selecting cards (as compared to looking at their values)
+        private bool Selecting;
 
         private BipGraph G;
         protected override void OnNavigatedTo(NavigationEventArgs e)
@@ -49,44 +51,54 @@ namespace IndependentProject
             // The two cards representing i are the numbers i and PairNumber + i, for organization
             G = new BipGraph(2 * PairNumber, 2 * PairNumber);
             ConfirmButton.Visibility = Visibility.Collapsed;
+            ShuffleButton.Visibility = Visibility.Collapsed;
             WinBlock.Visibility = Visibility.Collapsed;
             for (int i = 1; i <= 2*PairNumber; i++)
             {
                 for (int j = 1; j <= 2 * PairNumber; j++)
                 {
-                    G.addEdge(i, j);
+                    G.AddEdge(i, j);
                 }
             }
+            Selecting = true;
         }
 
         private void GridView_Click(object sender, ItemClickEventArgs e)
         {
-            Card output = e.ClickedItem as Card;
-            if (chosenArr[output.Id])
+            // Clicking the cards should only change stuff if the user is supposed to be clicking them
+            if (Selecting)
             {
-                // If already chosen, deselect the card
-                chosenArr[output.Id] = false;
-                chosenNum--;
-                Cards[output.Id].Border = new SolidColorBrush(Windows.UI.Colors.White);
-            } else
-            {
-                chosenArr[output.Id] = true;
-                chosenNum++;
-                Cards[output.Id].Border = new SolidColorBrush(Windows.UI.Colors.Black);
+                Card output = e.ClickedItem as Card;
+                if (chosenArr[output.Id])
+                {
+                    // If already chosen, deselect the card
+                    chosenArr[output.Id] = false;
+                    chosenNum--;
+                    Cards[output.Id].Border = new SolidColorBrush(Windows.UI.Colors.White);
+                }
+                else
+                {
+                    chosenArr[output.Id] = true;
+                    chosenNum++;
+                    Cards[output.Id].Border = new SolidColorBrush(Windows.UI.Colors.Black);
+                }
+                // ConfirmButton should only be visible if there are exactly ChooseNumber cards selected
+                if (chosenNum == ChooseNumber)
+                {
+                    ConfirmButton.Visibility = Visibility.Visible;
+                }
+                else
+                {
+                    ConfirmButton.Visibility = Visibility.Collapsed;
+                }
+                TestBlock.Text = chosenNum.ToString();
             }
-            // ConfirmButton should only be visible if there are exactly ChooseNumber cards selected
-            if (chosenNum == ChooseNumber)
-            {
-                ConfirmButton.Visibility = Visibility.Visible;
-            } else
-            {
-                ConfirmButton.Visibility = Visibility.Collapsed;
-            }
-            TestBlock.Text = chosenNum.ToString();
         }
 
         private void ConfirmButton_Click(object sender, RoutedEventArgs e)
         {
+            Selecting = false;
+            ConfirmButton.Visibility = Visibility.Collapsed;
             // This is the temporary bipartite graph, connecting the chosen cards to the possible values they can be
             // We ignore the cards which were not chosen, so they will not have connections and will not affect the algorithm
             BipGraph GTemp = new BipGraph(2 * PairNumber, PairNumber);
@@ -97,7 +109,7 @@ namespace IndependentProject
                     // For each vertex adjacent to i in G, add a connection in GTemp
                     foreach (int adj in G.adj[i])
                     {
-                        GTemp.addEdge(i, (adj - 1) % PairNumber + 1);
+                        GTemp.AddEdge(i + 1, (adj - 1) % PairNumber + 1);
                     }
                 }
             }
@@ -123,7 +135,7 @@ namespace IndependentProject
             {
                 // Set and store the values chosen to the cards
                 HashSet<int> values = new HashSet<int>();
-                for (int i = 0; i <= 2 * PairNumber; i++)
+                for (int i = 0; i < 2 * PairNumber; i++)
                 {
                     if (chosenArr[i])
                     {
@@ -138,17 +150,30 @@ namespace IndependentProject
                         }
                     }
                 }
-                for (int i = 0; i <= 2 * PairNumber; i++)
+                for (int i = 0; i < 2 * PairNumber; i++)
                 {
                     if (chosenArr[i])
                     {
-                        G.clearEdge(i);
+                        G.ClearVertex(i + 1);
                         foreach (int j in values)
                         {
-                            G.addEdge(i, j);
+                            G.AddEdge(i + 1, j);
                         }
                     }
                 }
+                // We cannot let non-chosen cards take on the value of a chosen card
+                for (int i = 0; i < 2 * PairNumber; i++)
+                {
+                    if (!chosenArr[i])
+                    {
+                        foreach (int j in values)
+                        {
+                            G.ClearVertexRight(j);
+                        }
+                    }
+                }
+                // We are allowed to shuffle now, as the game is still going on
+                ShuffleButton.Visibility = Visibility.Visible;
                 return;
             }
             // If we are here, we know that it wasn't valid, so we know that we lost
@@ -162,7 +187,7 @@ namespace IndependentProject
                     // For each vertex adjacent to i in G, add a connection in GTemp
                     foreach (int adj in G.adj[i])
                     {
-                        GTemp2.addEdge(i, adj);
+                        GTemp2.AddEdge(i + 1, adj);
                     }
                 }
             }
@@ -176,6 +201,27 @@ namespace IndependentProject
                 }
             }
             WinBlock.Visibility = Visibility.Visible;
+        }
+
+        private void ShuffleButton_Click(object sender, RoutedEventArgs e)
+        {
+            // Reset everything to before we selected anything. Do not reset the graph (G)
+            ShuffleButton.Visibility = Visibility.Collapsed;
+            Selecting = true;
+            for (int i = 0; i < 2 * PairNumber; i++)
+            {
+                Cards[i].Text = "Card";
+                Cards[i].Border = new SolidColorBrush(Windows.UI.Colors.White);
+                if (chosenArr[i])
+                {
+                    Cards[i].Background = new SolidColorBrush(Windows.UI.Colors.LightSteelBlue);
+                } else
+                {
+                    Cards[i].Background = new SolidColorBrush(Windows.UI.Colors.LightBlue);
+                }
+                chosenArr[i] = false;
+            }
+            chosenNum = 0;
         }
     }
 }

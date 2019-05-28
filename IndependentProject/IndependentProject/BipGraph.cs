@@ -34,7 +34,7 @@ namespace IndependentProject
             }
         }
         // Add an edge from u to v and v to u, avoiding duplicates
-        public void addEdge(int u, int v)
+        public void AddEdge(int u, int v)
         {
             if (!adj[u].Contains(v))
             {
@@ -42,10 +42,23 @@ namespace IndependentProject
             }
         }
         // Clear vertex u's edges
-        public void clearEdge(int u)
+        public void ClearVertex(int u)
         {
             adj[u] = new List<int>();
         }
+        // Clear vertex v's edges where v is on the right
+        // This is used because once a card is selected to be a certain number, other cards cannot also be that number
+        public void ClearVertexRight(int v)
+        {
+            for (int i = 0; i <= 2*m; i++)
+            {
+                if (adj[i].Contains(v))
+                {
+                    adj[i].Remove(v);
+                }
+            }
+        }
+
         // Checks to see if the two vertices are connected by a pair of edges
         public Boolean hasEdge (int u, int v)
         {
