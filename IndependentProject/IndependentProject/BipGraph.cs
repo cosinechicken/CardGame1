@@ -48,14 +48,11 @@ namespace IndependentProject
         }
         // Clear vertex v's edges where v is on the right
         // This is used because once a card is selected to be a certain number, other cards cannot also be that number
-        public void ClearVertexRight(int v)
+        public void ClearEdge(int u, int v)
         {
-            for (int i = 0; i <= 2*m; i++)
+            if (adj[u].Contains(v))
             {
-                if (adj[i].Contains(v))
-                {
-                    adj[i].Remove(v);
-                }
+                adj[u].Remove(v);
             }
         }
 

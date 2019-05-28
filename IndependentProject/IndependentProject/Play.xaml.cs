@@ -91,12 +91,13 @@ namespace IndependentProject
                 {
                     ConfirmButton.Visibility = Visibility.Collapsed;
                 }
-                TestBlock.Text = chosenNum.ToString();
+                TestBlock.Text = ("Cards chosen: " + chosenNum.ToString());
             }
         }
 
         private void ConfirmButton_Click(object sender, RoutedEventArgs e)
         {
+            TestBlock.Text = "Cards chosen: 0";
             Selecting = false;
             ConfirmButton.Visibility = Visibility.Collapsed;
             // This is the temporary bipartite graph, connecting the chosen cards to the possible values they can be
@@ -107,7 +108,7 @@ namespace IndependentProject
                 if (chosenArr[i])
                 {
                     // For each vertex adjacent to i in G, add a connection in GTemp
-                    foreach (int adj in G.adj[i])
+                    foreach (int adj in G.adj[i + 1])
                     {
                         GTemp.AddEdge(i + 1, (adj - 1) % PairNumber + 1);
                     }
@@ -117,7 +118,6 @@ namespace IndependentProject
             // Check if all chosen cards can have a unique value.
             // If they can, we are basically done. Otherwise, we need to do another Hopcroft Karp, this time where duplicate values are allowed
             bool valid = true;
-            TestBlock.Text = "";
             for (int i = 0; i < 2 * PairNumber; i++)
             {
                 if (chosenArr[i])
@@ -128,8 +128,7 @@ namespace IndependentProject
                         valid = false;
                         break;
                     }
-                }            
-                TestBlock.Text = (TestBlock.Text + (adjChosen[i + 1].ToString() + " "));
+                }
             }
             if (valid)
             {
@@ -142,12 +141,11 @@ namespace IndependentProject
                         if (G.hasEdge(i + 1, adjChosen[i + 1]))
                         {
                             values.Add(adjChosen[i + 1]);
-                            Cards[i].Text = adjChosen[i + 1].ToString();
                         } else
                         {
                             values.Add(adjChosen[i + 1] + PairNumber);
-                            Cards[i].Text = (adjChosen[i + 1] + PairNumber).ToString();
                         }
+                        Cards[i].Text = adjChosen[i + 1].ToString();
                     }
                 }
                 for (int i = 0; i < 2 * PairNumber; i++)
@@ -168,7 +166,7 @@ namespace IndependentProject
                     {
                         foreach (int j in values)
                         {
-                            G.ClearVertexRight(j);
+                            G.ClearEdge(i + 1, j);
                         }
                     }
                 }
@@ -185,7 +183,7 @@ namespace IndependentProject
                 if (chosenArr[i])
                 {
                     // For each vertex adjacent to i in G, add a connection in GTemp
-                    foreach (int adj in G.adj[i])
+                    foreach (int adj in G.adj[i + 1])
                     {
                         GTemp2.AddEdge(i + 1, adj);
                     }
