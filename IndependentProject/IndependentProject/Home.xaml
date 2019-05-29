@@ -9,8 +9,8 @@
 
     <Grid Background="White">
         <StackPanel>
-            <TextBlock Text="The Evil Card Game" FontSize="45" HorizontalAlignment="Center" Margin="20,20,20,20"/>
-            <TextBlock Text="Created By: Brandon Chen" FontSize="30" HorizontalAlignment="Center" Margin="20,20,20,20"/>
+            <TextBlock Text="The Evil Card Game" FontSize="45" HorizontalAlignment="Center" Margin="30,30,30,30"/>
+            <TextBlock Text="Created By: Brandon Chen" FontSize="30" HorizontalAlignment="Center" Margin="30,30,30,30"/>
         </StackPanel>
     </Grid>
 </Page>

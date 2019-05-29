@@ -145,7 +145,7 @@ namespace IndependentProject
                         {
                             values.Add(adjChosen[i + 1] + PairNumber);
                         }
-                        Cards[i].Text = adjChosen[i + 1].ToString();
+                        Cards[i].Text = (adjChosen[i + 1].ToString());
                     }
                 }
                 for (int i = 0; i < 2 * PairNumber; i++)

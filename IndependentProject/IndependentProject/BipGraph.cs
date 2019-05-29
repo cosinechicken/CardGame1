@@ -76,22 +76,22 @@ namespace IndependentProject
                 pairV[v] = 0;
             }
             int result = 0;
-            int count = 0;
             while (HasAugmentingPath())
             {
-                for (int u= 1; u <= m; u++)
+                // Shuffle the order in which the cards are chosen for dfs, to randomize the cards
+                List<int> order = new List<int>();
+                for (int i = 1; i <= m; i++)
+                {
+                    order.Add(i);
+                }
+                Shuffle(order);
+                for (int u = 0; u < m; u++)
                 {
                     // Finding an augmenting path starting from u on the left side of the graph
-                    if (pairU[u] == 0 && dfs(u))
+                    if (pairU[order[u]] == 0 && dfs(order[u]))
                     {
                         result++;
                     }
-                }
-                count++;
-                if (count == 10000)
-                {
-                    // Test
-                    throw new Exception();
                 }
             }
             return pairU;
@@ -99,6 +99,7 @@ namespace IndependentProject
         // Returns true if there is an augmenting path (alternating path starting and ending with free vertex), false otherwise
         private bool HasAugmentingPath()
         {
+            // For randomness, we shuffle the cards before each dequeue
             Queue<int> queue = new Queue<int>();
             // First layer of vertices
             for (int u = 1; u <= m; u++)
@@ -139,6 +140,8 @@ namespace IndependentProject
         {
             if (u != 0)
             {
+                // To randomize order adjacent vertices get visited in
+                Shuffle(adj[u]);
                 foreach (int i in adj[u])
                 {
                     if (dist[pairV[i]] == dist[u] + 1)
@@ -155,6 +158,21 @@ namespace IndependentProject
                 return false;
             }
             return true;
+        }
+
+        // Shuffling a list, code from https://stackoverflow.com/questions/273313/randomize-a-listt
+        private void Shuffle<T>(IList<T> list)
+        {
+            int n = list.Count;
+            Random rng = new Random();
+            while (n > 1)
+            {
+                n--;
+                int k = rng.Next(n + 1);
+                T value = list[k];
+                list[k] = list[n];
+                list[n] = value;
+            }
         }
     }
 }
