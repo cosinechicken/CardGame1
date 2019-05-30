@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace IndependentProject
 {
-    // Code adapted from https://www.geeksforgeeks.org/hopcroft-karp-algorithm-for-maximum-matching-set-2-implementation/
+    // Code adapted from https://www.geeksforgeeks.org/hopcroft-karp-algorithm-for-maximum-matching-set-2-implementation/, adapted 5/27/19, lines 14-161
     // BipGraph is abbreviation for Bipartite graph
     // Note: 1-based indices used for the vertices, be sure to convert in Play.xaml.cs!!!
     class BipGraph
@@ -160,7 +160,7 @@ namespace IndependentProject
             return true;
         }
 
-        // Shuffling a list, code from https://stackoverflow.com/questions/273313/randomize-a-listt
+        // Shuffling a list, code from https://stackoverflow.com/questions/273313/randomize-a-listt, copied 5/28/19, lines 164-176
         private void Shuffle<T>(IList<T> list)
         {
             int n = list.Count;

@@ -11,7 +11,8 @@
 
     <Grid>
         <StackPanel>
-            <ScrollViewer HorizontalScrollMode="Enabled" HorizontalScrollBarVisibility="Auto">
+            <TextBlock Name="IntroText" Text="Please select cards below: "/>
+            <ScrollViewer HorizontalScrollMode="Enabled" HorizontalScrollBarVisibility="Auto" Margin="20,20,20,20">
                 <GridView Name="CardsGridView" ItemsSource="{x:Bind Cards, Mode=OneWay}" HorizontalAlignment="Center" Margin="10,10,10,10" IsItemClickEnabled="True" ItemClick="GridView_Click">
                     <GridView.ItemTemplate>
                         <DataTemplate x:DataType="data:Card">
@@ -22,8 +23,8 @@
                     </GridView.ItemTemplate>
                 </GridView>
             </ScrollViewer>
-            <TextBlock Name="WinBlock" Text="You Win!" FontSize="36"/>
-            <TextBlock Name="TestBlock" Text="yeyyy" FontSize="16"/>
+            <TextBlock Name="WinBlock" Text="You Win!" FontSize="36" Margin="20,20,20,20"/>
+            <TextBlock Name="TestBlock" FontSize="16" Margin="20,20,20,20"/>
             <Button Name="ConfirmButton" Content="Confirm Selection" Click="ConfirmButton_Click"/>
             <Button Name="ShuffleButton" Content="Shuffle cards" Click="ShuffleButton_Click"/>
         </StackPanel>

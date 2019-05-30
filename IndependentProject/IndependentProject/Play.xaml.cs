@@ -53,6 +53,7 @@ namespace IndependentProject
             ConfirmButton.Visibility = Visibility.Collapsed;
             ShuffleButton.Visibility = Visibility.Collapsed;
             WinBlock.Visibility = Visibility.Collapsed;
+            IntroText.Visibility = Visibility.Visible;
             for (int i = 1; i <= 2*PairNumber; i++)
             {
                 for (int j = 1; j <= 2 * PairNumber; j++)
@@ -65,6 +66,7 @@ namespace IndependentProject
 
         private void GridView_Click(object sender, ItemClickEventArgs e)
         {
+            IntroText.Visibility = Visibility.Collapsed;
             // Clicking the cards should only change stuff if the user is supposed to be clicking them
             if (Selecting)
             {

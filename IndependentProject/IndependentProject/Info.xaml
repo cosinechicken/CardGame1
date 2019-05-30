@@ -9,20 +9,22 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <Grid>
-        <StackPanel>
-            <TextBlock HorizontalAlignment="Center" FontSize="28" Margin="20,20,20,20"> Instructions </TextBlock>
-            <TextBlock HorizontalAlignment="Left" FontSize="18" Margin="20,5,10,10">On sliders in the Settings page, the player chooses integers <Italic>n</Italic> and <Italic>k</Italic> such that <Italic>2 ≤ k ≤ n ≤ 20</Italic>.</TextBlock>
-            <TextBlock HorizontalAlignment="Left" FontSize="18" Margin="20,5,10,10">There are <Italic>2n</Italic> cards, all face down, so that for each <Italic>i = 1, 2, ... n</Italic>, there are two cards labelled <Italic>i</Italic>.</TextBlock>
-            <TextBlock HorizontalAlignment="Left" FontSize="18" Margin="20,5,10,10">On each move, the player chooses <Italic>k</Italic> of the <Italic>2n</Italic> cards, and those <Italic>k</Italic> cards are turned over for the player to see.</TextBlock>
-            <TextBlock HorizontalAlignment="Left" FontSize="18" Margin="20,5,10,10">If any two cards are the same, the player wins; otherwise, the chosen cards are turned back over and shuffled.</TextBlock>
-            <TextBlock HorizontalAlignment="Left" FontSize="18" Margin="20,5,10,10">However, there is a catch. This card game is evil, so it will give the ordering of cards which is the worst for the player. </TextBlock>
-            <TextBlock HorizontalAlignment="Left" FontSize="18" Margin="20,5,10,10">The cards will appear as buttons in the Play tab, and their borders turn from white to black when chosen.</TextBlock>
-            <TextBlock HorizontalAlignment="Left" FontSize="18" Margin="20,5,10,10">When <Italic>k</Italic> cards are chosen, the player clicks the "Confirm" button to confirm their choice of cards.</TextBlock>
-            <TextBlock HorizontalAlignment="Left" FontSize="18" Margin="20,5,10,10">After the player has finished viewing the cards, they press the "Shuffle" button to shuffle the cards and begin the next turn</TextBlock>
-
-            <TextBlock HorizontalAlignment="Center" FontSize="28" Margin="20,20,20,20">Credits</TextBlock>
-            <TextBlock HorizontalAlignment="Left" FontSize="18" Margin="20,5,10,10">Credits of code to Brandon Chen. Project idea proposed by Gabriel Carroll in USAMO 2016 #6.</TextBlock>
-            <TextBlock HorizontalAlignment="Left" FontSize="18" Margin="20,5,10,10">Source of problem: https://artofproblemsolving.com/wiki/index.php/2016_USAMO_Problems/Problem_6</TextBlock>
-        </StackPanel>
+        <ScrollViewer HorizontalScrollMode="Enabled" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
+            <StackPanel>
+                <TextBlock HorizontalAlignment="Center" FontSize="28" Margin="20,20,20,20"> Instructions</TextBlock>
+                <TextBlock HorizontalAlignment="Left" FontSize="18" Margin="20,15,10,10">On sliders in the Settings page, the player chooses integers <Italic>n</Italic> and <Italic>k</Italic> such that <Italic>2 ≤ k ≤ n ≤ 20</Italic>.</TextBlock>
+                <TextBlock HorizontalAlignment="Left" FontSize="18" Margin="20,15,10,10">There are <Italic>2n</Italic> cards, all face down, so that for each <Italic>i = 1, 2, ... n</Italic>, there are two cards labelled <Italic>i</Italic>.</TextBlock>
+                <TextBlock HorizontalAlignment="Left" FontSize="18" Margin="20,15,10,10">On each move, the player chooses <Italic>k</Italic> of the <Italic>2n</Italic> cards, and those <Italic>k</Italic> cards are turned over for the player to see.</TextBlock>
+                <TextBlock HorizontalAlignment="Left" FontSize="18" Margin="20,15,10,10">If any two cards are the same, the player wins; otherwise, the chosen cards are turned back over and shuffled.</TextBlock>
+                <TextBlock HorizontalAlignment="Left" FontSize="18" Margin="20,15,10,10">However, there is a catch. This card game is evil, so it will give the ordering of cards which is the worst for the player.</TextBlock>
+                <TextBlock HorizontalAlignment="Left" FontSize="18" Margin="20,15,10,10">The cards will appear as buttons in the Play tab, and their borders turn from white to black when chosen.</TextBlock>
+                <TextBlock HorizontalAlignment="Left" FontSize="18" Margin="20,15,10,10">When <Italic>k</Italic> cards are chosen, the player clicks the "Confirm" button to confirm their choice of cards.</TextBlock>
+                <TextBlock HorizontalAlignment="Left" FontSize="18" Margin="20,15,10,10">After the player has finished viewing the cards, they press the "Shuffle" button to shuffle the cards and begin the next turn</TextBlock>
+    
+                <TextBlock HorizontalAlignment="Center" FontSize="28" Margin="20,20,20,20">Credits</TextBlock>
+                <TextBlock HorizontalAlignment="Left" FontSize="18" Margin="20,15,10,10">Credits of code to Brandon Chen. Project idea proposed by Gabriel Carroll in USAMO 2016 #6.</TextBlock>
+                <TextBlock HorizontalAlignment="Left" FontSize="18" Margin="20,15,10,10">Source of problem: https://artofproblemsolving.com/wiki/index.php/2016_USAMO_Problems/Problem_6</TextBlock>
+            </StackPanel>
+        </ScrollViewer>
     </Grid>
 </Page>

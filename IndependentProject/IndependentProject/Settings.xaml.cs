@@ -21,7 +21,7 @@ using Windows.UI.Xaml.Navigation;
 namespace IndependentProject
 {
     /// <summary>
-    /// Code is from the following URL: https://www.youtube.com/watch?v=545NoF7Sab4&t=12s
+    /// Code is from the following URL: https://www.youtube.com/watch?v=545NoF7Sab4&t=12s, copied 5/17/19, lines 28-68
     /// </summary>
     public sealed partial class Settings : Page, INotifyPropertyChanged
     {
